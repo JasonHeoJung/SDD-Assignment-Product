@@ -13,7 +13,7 @@ namespace Game
                 try
                 {
                     int choice = Convert.ToInt32(Console.ReadLine());
-                    if (choice > 2 || choice < 0)
+                    if (choice > 4 || choice < 0)
                     {
                         Console.WriteLine("Please enter a valid choice\n");
                         Console.Write("Please enter your option: ");
