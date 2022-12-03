@@ -27,6 +27,7 @@ namespace Game
                     }
                     else if (choice == 1)
                     {
+                        ChooseBuilding();
                     }
                     else if (choice == 2)
                     {
@@ -58,6 +59,37 @@ namespace Game
             Console.WriteLine("[3] Display High Scores");
             Console.WriteLine("[0] Exit Game");
             Console.WriteLine("----------------------------------\n");
+
+        }
+
+        static string ChooseBuilding()
+        {
+            Console.WriteLine("\n++++++++++++++++++++");
+            Console.WriteLine("[1] Residential ");
+            Console.WriteLine("[2] Industry ");
+            Console.WriteLine("[3] Commercial ");
+            Console.WriteLine("[4] Park ");
+            Console.WriteLine("[5] Road ");
+            Console.WriteLine("++++++++++++++++++++\n");
+
+            while (true)
+            {
+                Console.Write("Please Choose Building to place: ");
+                string choice = Console.ReadLine();
+                choice = choice.Trim();
+                string[] o = { "1", "2", "3", "4", "5" };
+                string[] b = { "R", "I", "C", "O", "*" };
+
+                for (int i = 0; i < o.Length; i++)
+                {
+                    if (choice == o[i])
+                    {
+                        return b[i];
+                    }
+                }
+
+                Console.WriteLine("Please enter a valid choice\n");
+            }
 
         }
     }

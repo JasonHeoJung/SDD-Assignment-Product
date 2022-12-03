@@ -26,3 +26,17 @@ C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\obj\Debug\netcorea
 C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\obj\Debug\netcoreapp3.1\Game.dll
 C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\obj\Debug\netcoreapp3.1\Game.pdb
 C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\obj\Debug\netcoreapp3.1\Game.genruntimeconfig.cache
+D:\SchoolStuff\SDD\Assignment2\Game\bin\Debug\netcoreapp3.1\Game.exe
+D:\SchoolStuff\SDD\Assignment2\Game\bin\Debug\netcoreapp3.1\Game.deps.json
+D:\SchoolStuff\SDD\Assignment2\Game\bin\Debug\netcoreapp3.1\Game.runtimeconfig.json
+D:\SchoolStuff\SDD\Assignment2\Game\bin\Debug\netcoreapp3.1\Game.runtimeconfig.dev.json
+D:\SchoolStuff\SDD\Assignment2\Game\bin\Debug\netcoreapp3.1\Game.dll
+D:\SchoolStuff\SDD\Assignment2\Game\bin\Debug\netcoreapp3.1\Game.pdb
+D:\SchoolStuff\SDD\Assignment2\Game\obj\Debug\netcoreapp3.1\Game.csproj.AssemblyReference.cache
+D:\SchoolStuff\SDD\Assignment2\Game\obj\Debug\netcoreapp3.1\Game.GeneratedMSBuildEditorConfig.editorconfig
+D:\SchoolStuff\SDD\Assignment2\Game\obj\Debug\netcoreapp3.1\Game.AssemblyInfoInputs.cache
+D:\SchoolStuff\SDD\Assignment2\Game\obj\Debug\netcoreapp3.1\Game.AssemblyInfo.cs
+D:\SchoolStuff\SDD\Assignment2\Game\obj\Debug\netcoreapp3.1\Game.csproj.CoreCompileInputs.cache
+D:\SchoolStuff\SDD\Assignment2\Game\obj\Debug\netcoreapp3.1\Game.dll
+D:\SchoolStuff\SDD\Assignment2\Game\obj\Debug\netcoreapp3.1\Game.pdb
+D:\SchoolStuff\SDD\Assignment2\Game\obj\Debug\netcoreapp3.1\Game.genruntimeconfig.cache
