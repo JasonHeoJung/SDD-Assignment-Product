@@ -20,6 +20,11 @@ namespace Game
                         choice = Convert.ToInt32(Console.ReadLine());
                     }
 
+                    if (choice == 0)
+                    {
+                        Console.WriteLine("Goodbye!");
+                        break;
+                    }
                     else if (choice == 1)
                     {
                     }
