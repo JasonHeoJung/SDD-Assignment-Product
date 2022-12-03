@@ -12,3 +12,17 @@ C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\Game\bin\Debug\ne
 C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\Game\obj\Debug\netcoreapp3.1\Game.dll
 C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\Game\obj\Debug\netcoreapp3.1\Game.pdb
 C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\Game\obj\Debug\netcoreapp3.1\Game.genruntimeconfig.cache
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\bin\Debug\netcoreapp3.1\Game.exe
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\bin\Debug\netcoreapp3.1\Game.deps.json
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\bin\Debug\netcoreapp3.1\Game.runtimeconfig.json
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\bin\Debug\netcoreapp3.1\Game.runtimeconfig.dev.json
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\bin\Debug\netcoreapp3.1\Game.dll
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\bin\Debug\netcoreapp3.1\Game.pdb
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\obj\Debug\netcoreapp3.1\Game.csproj.AssemblyReference.cache
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\obj\Debug\netcoreapp3.1\Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\obj\Debug\netcoreapp3.1\Game.AssemblyInfoInputs.cache
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\obj\Debug\netcoreapp3.1\Game.AssemblyInfo.cs
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\obj\Debug\netcoreapp3.1\Game.csproj.CoreCompileInputs.cache
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\obj\Debug\netcoreapp3.1\Game.dll
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\obj\Debug\netcoreapp3.1\Game.pdb
+C:\Users\Keanan\Desktop\SDD\ASG 2\SDD-Assignment-Product\Game\obj\Debug\netcoreapp3.1\Game.genruntimeconfig.cache

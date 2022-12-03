@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\xavie\\OneDrive\\Attachments\\Desktop\\SDD\\SDD Assignment\\Game\\Game.csproj": {}
+    "C:\\Users\\Keanan\\Desktop\\SDD\\ASG 2\\SDD-Assignment-Product\\Game\\Game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\xavie\\OneDrive\\Attachments\\Desktop\\SDD\\SDD Assignment\\Game\\Game.csproj": {
+    "C:\\Users\\Keanan\\Desktop\\SDD\\ASG 2\\SDD-Assignment-Product\\Game\\Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\xavie\\OneDrive\\Attachments\\Desktop\\SDD\\SDD Assignment\\Game\\Game.csproj",
+        "projectUniqueName": "C:\\Users\\Keanan\\Desktop\\SDD\\ASG 2\\SDD-Assignment-Product\\Game\\Game.csproj",
         "projectName": "Game",
-        "projectPath": "C:\\Users\\xavie\\OneDrive\\Attachments\\Desktop\\SDD\\SDD Assignment\\Game\\Game.csproj",
-        "packagesPath": "C:\\Users\\xavie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\xavie\\OneDrive\\Attachments\\Desktop\\SDD\\SDD Assignment\\Game\\obj\\",
+        "projectPath": "C:\\Users\\Keanan\\Desktop\\SDD\\ASG 2\\SDD-Assignment-Product\\Game\\Game.csproj",
+        "packagesPath": "C:\\Users\\Keanan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Keanan\\Desktop\\SDD\\ASG 2\\SDD-Assignment-Product\\Game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\xavie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Keanan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
