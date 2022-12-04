@@ -62,7 +62,8 @@ namespace Game
             while (Coin != 0)
             {
                 DisplayMap(map_List, true);
-                ChooseBuilding(Coin);
+                ChooseBuilding();
+                Coin--;
             }
         }
         static void DisplayMenu()
@@ -77,7 +78,7 @@ namespace Game
 
         }
 
-        static string ChooseBuilding(int Coin)
+        static string ChooseBuilding()
         {
             Console.WriteLine("\n++++++++++++++++++++");
             Console.WriteLine("[1] Residential ");
@@ -105,7 +106,6 @@ namespace Game
 
                 Console.WriteLine("Please enter a valid choice\n");
             }
-            Coin--;
         }
         static void DisplayMap(List<List<string>> map, bool check)
         {
