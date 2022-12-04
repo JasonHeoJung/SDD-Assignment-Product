@@ -32,7 +32,8 @@ namespace Game
                     }
                     else if (choice == 1)
                     {
-                        newGame(checkNewGame, Coin)
+                        checkNewGame = true;
+                        newGame(map_List);
                     }
                     else if (choice == 2)
                     {
@@ -55,12 +56,14 @@ namespace Game
                 }
             }
         }
-        static void newGame(bool checkNewGame, int Coin)
+        static void newGame(List<List<string>> map_List)
         {
-            checkNewGame = true;
-            Coin = 16;
-            DisplayMap(map_List, true);
-            ChooseBuilding(Coin);
+            int Coin = 16;
+            while (Coin != 0)
+            {
+                DisplayMap(map_List, true);
+                ChooseBuilding(Coin);
+            }
         }
         static void DisplayMenu()
         {
