@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Game
 {
@@ -6,6 +8,8 @@ namespace Game
     {
         static void Main(string[] args)
         {
+            List<List<string>> map_List = new List<List<string>>();
+            bool checkNewGame = false;
             while (true)
             {
                 DisplayMenu();
@@ -27,6 +31,8 @@ namespace Game
                     }
                     else if (choice == 1)
                     {
+                        checkNewGame = true;
+                        DisplayMap(map_List, true);
                         ChooseBuilding();
                     }
                     else if (choice == 2)
@@ -91,6 +97,40 @@ namespace Game
                 Console.WriteLine("Please enter a valid choice\n");
             }
 
+        }
+        static void DisplayMap(List<List<string>> map, bool check)
+        {
+            if (check)
+            {
+                map.Clear();
+                for (int i = 0; i < 20; i++)
+                {
+                    List<string> rowOfEmptyBuildings = new List<string>();
+                    for (int n = 0; n < 20; i++)
+                    {
+                        rowOfEmptyBuildings.Add("| ");
+                    }
+                    map.Add(rowOfEmptyBuildings);
+                }
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                Console.Write("+---");
+            }
+            Console.WriteLine("+");
+            for (int i = 0; i < 20; i++)
+            {
+                for (int n = 0; n < 20; n++)
+                {
+                    Console.Write(map[i][n]);
+                }
+                Console.WriteLine("|");
+                for (int n = 0; n < 20; n++)
+                {
+                    Console.Write("+---");
+                }
+                Console.WriteLine("+");
+            }
         }
     }
 }
