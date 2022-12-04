@@ -122,7 +122,7 @@ namespace Game
             {
                 for (int n = 0; n < 20; n++)
                 {
-                    Console.Write(map[i][n]);
+                    Console.Write(map[i][n].ToString());
                 }
                 Console.WriteLine("|");
                 for (int n = 0; n < 20; n++)
