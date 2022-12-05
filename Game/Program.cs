@@ -31,6 +31,13 @@ namespace Game
                     }
                     else if (choice == 1)
                     {
+                        Console.WriteLine("\n++++++++++++++++++++");
+                        Console.WriteLine("[1] Residential ");
+                        Console.WriteLine("[2] Industry ");
+                        Console.WriteLine("[3] Commercial ");
+                        Console.WriteLine("[4] Park ");
+                        Console.WriteLine("[5] Road ");
+                        Console.WriteLine("++++++++++++++++++++\n");
                         checkNewGame = true;
                         DisplayMap(map_List, true);
                         ChooseBuilding();

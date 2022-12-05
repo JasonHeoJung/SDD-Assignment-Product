@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {}
+    "C:\\Users\\xavie\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Documents\\School stuff\\Y2 Sem 2\\SDD\\Assignment 1 Code\\Game\\Game.csproj",
+      "projectUniqueName": "C:\\Users\\xavie\\OneDrive\\Attachments\\Desktop\\SDD\\SDD Assignment\\Game\\Game.csproj",
       "projectName": "Game",
-      "projectPath": "C:\\Users\\USER\\Documents\\School stuff\\Y2 Sem 2\\SDD\\Assignment 1 Code\\Game\\Game.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Documents\\School stuff\\Y2 Sem 2\\SDD\\Assignment 1 Code\\Game\\obj\\",
+      "projectPath": "C:\\Users\\xavie\\OneDrive\\Attachments\\Desktop\\SDD\\SDD Assignment\\Game\\Game.csproj",
+      "packagesPath": "C:\\Users\\xavie\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\xavie\\OneDrive\\Attachments\\Desktop\\SDD\\SDD Assignment\\Game\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\xavie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
       }
     }
   }
