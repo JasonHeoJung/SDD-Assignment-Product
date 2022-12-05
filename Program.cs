@@ -35,7 +35,6 @@ namespace Game
                     }
                     else if (choice == 1)
                     {
-
                         checkNewGame = true;
                         newGame(map_List);
                     }
@@ -157,6 +156,7 @@ namespace Game
                         map[y][x] = building;
                         break;
                     }
+                    // map is not empty, check for adjacent buildings
                     else
                     {
                         List<string> check = new List<string>();
@@ -164,11 +164,13 @@ namespace Game
                         check.Add(map[y - 1][x]);
                         check.Add(map[y][x + 1]);
                         check.Add(map[y][x - 1]);
+                        // location selected is valid
                         if (check.Any(item => allBuilding.Contains(item)))
                         {
                             map[y][x] = building;
                             break;
                         }
+                        // location selected is not valid
                         else
                         {
                             Console.WriteLine("New Building must be placed next to an existing building!");
