@@ -8,7 +8,9 @@ namespace Game
     {
         static void Main(string[] args)
         {
+            //Nested List to store grid for each row 
             List<List<string>> map_List = new List<List<string>>();
+            //Boolean to check if a new game is generated
             bool checkNewGame = false;
             int Coin = 0;
             while (true)
@@ -109,8 +111,10 @@ namespace Game
         }
         static void DisplayMap(List<List<string>> map, bool check)
         {
+            //Generates a new empty 20x20 grid if new game is generated
             if (check)
             {
+                //Empty list containing grid
                 map.Clear();
                 for (int i = 0; i < 20; i++)
                 {
@@ -126,7 +130,15 @@ namespace Game
             {
                 for (int n = 0; n < 20; n++)
                 {
-                    Console.Write(map[i][n].ToString() + "  ");
+                    //If length > 2, it indicates there is a building, hence it prints one less space
+                    if(map[i][n].Length > 2)
+                    {
+                        Console.Write(map[i][n].ToString() + " ");
+                    }
+                    else
+                    {
+                        Console.Write(map[i][n].ToString() + "  ");
+                    }
                 }
                 Console.WriteLine("|");
                 for (int n = 0; n < 20; n++)
