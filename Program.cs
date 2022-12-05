@@ -33,19 +33,13 @@ namespace Game
                         break;
                     }
                     else if (choice == 1)
-                    {
-                        Console.WriteLine("\n++++++++++++++++++++");
-                        Console.WriteLine("[1] Residential ");
-                        Console.WriteLine("[2] Industry ");
-                        Console.WriteLine("[3] Commercial ");
-                        Console.WriteLine("[4] Park ");
-                        Console.WriteLine("[5] Road ");
-                        Console.WriteLine("++++++++++++++++++++\n");
+                    { 
                         checkNewGame = true;
                         newGame(map_List);
                     }
                     else if (choice == 2)
                     {
+                        ChooseBuilding();
                     }
                     else if (choice == 3)
                     {
@@ -89,32 +83,40 @@ namespace Game
 
         static string ChooseBuilding()
         {
-            Console.WriteLine("\n++++++++++++++++++++");
-            Console.WriteLine("[1] Residential ");
-            Console.WriteLine("[2] Industry ");
-            Console.WriteLine("[3] Commercial ");
-            Console.WriteLine("[4] Park ");
-            Console.WriteLine("[5] Road ");
-            Console.WriteLine("++++++++++++++++++++\n");
+
+            List<string> allBuilding = new List<string>() { "R", "I", "C", "O", "*" };
+            List<string> randomBuilding = new List<string>();
+            List<string> buildFull = new List<string>() { "Residential", "Industry", "Commercial", "Park", "Road" };
+            Random rnd = new Random();
+
+            Console.WriteLine("=========================");
+            for (int i = 0; i < 2; i++)
+            {
+                int num = rnd.Next(allBuilding.Count);
+                randomBuilding.Add(allBuilding[num]);
+                Console.WriteLine("[{0}] {1}", i+1, buildFull[num]);
+                allBuilding.RemoveAt(num);
+                buildFull.RemoveAt(num);
+            }
 
             while (true)
             {
-                Console.Write("Please Choose Building to place: ");
+                Console.Write("Choose Building to place: ");
                 string choice = Console.ReadLine();
                 choice = choice.Trim();
-                string[] o = { "1", "2", "3", "4", "5" };
-                string[] b = { "R", "I", "C", "O", "*" };
 
-                for (int i = 0; i < o.Length; i++)
+                if (choice == "1" || choice == "2")
                 {
-                    if (choice == o[i])
-                    {
-                        return b[i];
-                    }
+                    int index = Convert.ToInt32(choice);
+                    Console.WriteLine("=========================");
+                    return randomBuilding[index - 1];
                 }
-
-                Console.WriteLine("Please enter a valid choice\n");
+                else
+                {
+                    Console.WriteLine("Please enter a valid choice\n");
+                }
             }
+
         }
         static void DisplayMap(List<List<string>> map, bool check)
         {

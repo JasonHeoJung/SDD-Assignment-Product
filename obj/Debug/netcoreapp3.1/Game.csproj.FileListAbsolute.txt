@@ -54,3 +54,17 @@ C:\Users\USER\Documents\School stuff\Y2 Sem 2\SDD\Assignment 1 Code\Game\obj\Deb
 C:\Users\USER\Documents\School stuff\Y2 Sem 2\SDD\Assignment 1 Code\Game\obj\Debug\netcoreapp3.1\Game.dll
 C:\Users\USER\Documents\School stuff\Y2 Sem 2\SDD\Assignment 1 Code\Game\obj\Debug\netcoreapp3.1\Game.pdb
 C:\Users\USER\Documents\School stuff\Y2 Sem 2\SDD\Assignment 1 Code\Game\obj\Debug\netcoreapp3.1\Game.genruntimeconfig.cache
+D:\SchoolStuff\SDD\Assignment2\bin\Debug\netcoreapp3.1\Game.exe
+D:\SchoolStuff\SDD\Assignment2\bin\Debug\netcoreapp3.1\Game.deps.json
+D:\SchoolStuff\SDD\Assignment2\bin\Debug\netcoreapp3.1\Game.runtimeconfig.json
+D:\SchoolStuff\SDD\Assignment2\bin\Debug\netcoreapp3.1\Game.runtimeconfig.dev.json
+D:\SchoolStuff\SDD\Assignment2\bin\Debug\netcoreapp3.1\Game.dll
+D:\SchoolStuff\SDD\Assignment2\bin\Debug\netcoreapp3.1\Game.pdb
+D:\SchoolStuff\SDD\Assignment2\obj\Debug\netcoreapp3.1\Game.csproj.AssemblyReference.cache
+D:\SchoolStuff\SDD\Assignment2\obj\Debug\netcoreapp3.1\Game.GeneratedMSBuildEditorConfig.editorconfig
+D:\SchoolStuff\SDD\Assignment2\obj\Debug\netcoreapp3.1\Game.AssemblyInfoInputs.cache
+D:\SchoolStuff\SDD\Assignment2\obj\Debug\netcoreapp3.1\Game.AssemblyInfo.cs
+D:\SchoolStuff\SDD\Assignment2\obj\Debug\netcoreapp3.1\Game.csproj.CoreCompileInputs.cache
+D:\SchoolStuff\SDD\Assignment2\obj\Debug\netcoreapp3.1\Game.dll
+D:\SchoolStuff\SDD\Assignment2\obj\Debug\netcoreapp3.1\Game.pdb
+D:\SchoolStuff\SDD\Assignment2\obj\Debug\netcoreapp3.1\Game.genruntimeconfig.cache
