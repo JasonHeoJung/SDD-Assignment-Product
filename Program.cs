@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Game
 {
@@ -33,13 +34,15 @@ namespace Game
                         break;
                     }
                     else if (choice == 1)
-                    { 
+                    {
+
                         checkNewGame = true;
                         newGame(map_List);
                     }
                     else if (choice == 2)
                     {
-                        ChooseBuilding();
+                        
+
                     }
                     else if (choice == 3)
                     {
@@ -90,6 +93,7 @@ namespace Game
             Random rnd = new Random();
 
             Console.WriteLine("=========================");
+            // Get Two random buildings for options
             for (int i = 0; i < 2; i++)
             {
                 int num = rnd.Next(allBuilding.Count);
@@ -101,14 +105,13 @@ namespace Game
 
             while (true)
             {
+                // Return building chose by player
                 Console.Write("Choose Building to place: ");
-                string choice = Console.ReadLine();
-                choice = choice.Trim();
+                string choice = Console.ReadLine().Trim();
 
                 if (choice == "1" || choice == "2")
                 {
                     int index = Convert.ToInt32(choice);
-                    Console.WriteLine("=========================");
                     return randomBuilding[index - 1];
                 }
                 else
@@ -117,6 +120,67 @@ namespace Game
                 }
             }
 
+        }
+
+        static void PlaceBuilding(List<List<string>> map, string building)
+        {
+            List<string> allBuilding = new List<string>() { "R", "I", "C", "O", "*" };
+            while (true)
+            {
+                // Turn written location into a coordinate
+                Console.Write("Choose a location: ");
+
+                // Get location
+                string buildLoc = Console.ReadLine().Trim().ToUpper();
+                string gridY = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+                int y = 20; // Y coordinate of the map
+                int x = 20; // X coordinate of the map
+
+                // Getting the Y coordinate
+                for (int i = 0; i < gridY.Length; i++)
+                {
+                    if (buildLoc[0] == gridY[i])
+                    {
+                        y = i;
+                    }
+                }
+
+                // Getting the X coordinate
+                x = Convert.ToInt32(Regex.Match(buildLoc, @"\d+").Value);
+
+                if ( 0 <= x && x < 20 && 0 <= y && y < 20)
+                {
+                    //  if map is empty, can place anywhere
+                    if (map.Count == 0)
+                    {
+                        map[y][x] = building;
+                        break;
+                    }
+                    else
+                    {
+                        List<string> check = new List<string>();
+                        check.Add(map[y + 1][x]);
+                        check.Add(map[y - 1][x]);
+                        check.Add(map[y][x + 1]);
+                        check.Add(map[y][x - 1]);
+                        if (check.Any(item => allBuilding.Contains(item)))
+                        {
+                            map[y][x] = building;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("New Building must be placed next to an existing building!");
+                        }
+                    }
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid location");
+                }
+            }
         }
         static void DisplayMap(List<List<string>> map, bool check)
         {
