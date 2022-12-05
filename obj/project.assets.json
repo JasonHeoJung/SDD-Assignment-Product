@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\xavie\\.nuget\\packages\\": {}
+    "C:\\Users\\Mar Yong Rui\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\xavie\\OneDrive\\Attachments\\Desktop\\SDD\\SDD Assignment\\Game\\Game.csproj",
+      "projectUniqueName": "D:\\SchoolStuff\\SDD\\Assignment2\\Game.csproj",
       "projectName": "Game",
-      "projectPath": "C:\\Users\\xavie\\OneDrive\\Attachments\\Desktop\\SDD\\SDD Assignment\\Game\\Game.csproj",
-      "packagesPath": "C:\\Users\\xavie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\xavie\\OneDrive\\Attachments\\Desktop\\SDD\\SDD Assignment\\Game\\obj\\",
+      "projectPath": "D:\\SchoolStuff\\SDD\\Assignment2\\Game.csproj",
+      "packagesPath": "C:\\Users\\Mar Yong Rui\\.nuget\\packages\\",
+      "outputPath": "D:\\SchoolStuff\\SDD\\Assignment2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\xavie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mar Yong Rui\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -51,8 +51,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -61,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
