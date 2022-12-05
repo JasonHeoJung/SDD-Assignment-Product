@@ -8,8 +8,11 @@ namespace Game
     {
         static void Main(string[] args)
         {
+            //Nested List to store grid for each row 
             List<List<string>> map_List = new List<List<string>>();
+            //Boolean to check if a new game is generated
             bool checkNewGame = false;
+            int Coin = 0;
             while (true)
             {
                 DisplayMenu();
@@ -31,9 +34,15 @@ namespace Game
                     }
                     else if (choice == 1)
                     {
+                        Console.WriteLine("\n++++++++++++++++++++");
+                        Console.WriteLine("[1] Residential ");
+                        Console.WriteLine("[2] Industry ");
+                        Console.WriteLine("[3] Commercial ");
+                        Console.WriteLine("[4] Park ");
+                        Console.WriteLine("[5] Road ");
+                        Console.WriteLine("++++++++++++++++++++\n");
                         checkNewGame = true;
-                        DisplayMap(map_List, true);
-                        ChooseBuilding();
+                        newGame(map_List);
                     }
                     else if (choice == 2)
                     {
@@ -54,6 +63,16 @@ namespace Game
                 {
                     Console.WriteLine(choiceError.Message + "\nPlease enter a valid choice\n");
                 }
+            }
+        }
+        static void newGame(List<List<string>> map_List)
+        {
+            int Coin = 16;
+            while (Coin != 0)
+            {
+                DisplayMap(map_List, true);
+                ChooseBuilding();
+                Coin--;
             }
         }
         static void DisplayMenu()
@@ -96,21 +115,17 @@ namespace Game
 
                 Console.WriteLine("Please enter a valid choice\n");
             }
-
         }
         static void DisplayMap(List<List<string>> map, bool check)
         {
+            //Generates a new empty 20x20 grid if new game is generated
             if (check)
             {
+                //Empty list containing grid
                 map.Clear();
                 for (int i = 0; i < 20; i++)
                 {
-                    List<string> rowOfEmptyBuildings = new List<string>();
-                    for (int n = 0; n < 20; i++)
-                    {
-                        rowOfEmptyBuildings.Add("| ");
-                    }
-                    map.Add(rowOfEmptyBuildings);
+                    map.Add(new List<string> { "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| " });
                 }
             }
             for (int i = 0; i < 20; i++)
@@ -122,7 +137,15 @@ namespace Game
             {
                 for (int n = 0; n < 20; n++)
                 {
-                    Console.Write(map[i][n]);
+                    //If length > 2, it indicates there is a building, hence it prints one less space
+                    if(map[i][n].Length > 2)
+                    {
+                        Console.Write(map[i][n].ToString() + " ");
+                    }
+                    else
+                    {
+                        Console.Write(map[i][n].ToString() + "  ");
+                    }
                 }
                 Console.WriteLine("|");
                 for (int n = 0; n < 20; n++)
