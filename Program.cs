@@ -68,6 +68,7 @@ namespace Game
             {
                 DisplayMap(map_List, true);
                 ChooseBuilding();
+                OtherOptions();
                 Coin--;
             }
         }
@@ -221,6 +222,19 @@ namespace Game
                     Console.Write("+---");
                 }
                 Console.WriteLine("+");
+            }
+        }
+
+        static void OtherOptions()
+        {
+            Console.WriteLine("Other options: ");
+            Console.WriteLine("[3] See Current Scores");
+            Console.WriteLine("[4] Return to Main Menu");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            if (choice == 0)
+            {
+                DisplayMenu();
             }
         }
     }
