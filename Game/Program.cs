@@ -114,12 +114,7 @@ namespace Game
                 map.Clear();
                 for (int i = 0; i < 20; i++)
                 {
-                    List<string> rowOfEmptyBuildings = new List<string>();
-                    for (int n = 0; n < 20; i++)
-                    {
-                        rowOfEmptyBuildings.Add("| ");
-                    }
-                    map.Add(rowOfEmptyBuildings);
+                    map.Add(new List<string> { "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| " });
                 }
             }
             for (int i = 0; i < 20; i++)
@@ -131,7 +126,7 @@ namespace Game
             {
                 for (int n = 0; n < 20; n++)
                 {
-                    Console.Write(map[i][n].ToString());
+                    Console.Write(map[i][n].ToString() + "  ");
                 }
                 Console.WriteLine("|");
                 for (int n = 0; n < 20; n++)
