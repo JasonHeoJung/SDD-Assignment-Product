@@ -197,6 +197,14 @@ namespace Game
                     map.Add(new List<string> { "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| " });
                 }
             }
+            string letterGrid = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            Console.Write("    ");
+            for (int i = 0; i < 20; i++)
+            {
+                Console.Write(" " + letterGrid[i] + "  ");
+            }
+            Console.WriteLine();
+            Console.Write("   ");
             for (int i = 0; i < 20; i++)
             {
                 Console.Write("+---");
@@ -204,6 +212,14 @@ namespace Game
             Console.WriteLine("+");
             for (int i = 0; i < 20; i++)
             {
+                if (i >= 9)
+                {
+                    Console.Write((i + 1) + " ");
+                }
+                else
+                {
+                    Console.Write((i + 1) + "  ");
+                }
                 for (int n = 0; n < 20; n++)
                 {
                     //If length > 2, it indicates there is a building, hence it prints one less space
@@ -217,6 +233,7 @@ namespace Game
                     }
                 }
                 Console.WriteLine("|");
+                Console.Write("   ");
                 for (int n = 0; n < 20; n++)
                 {
                     Console.Write("+---");
