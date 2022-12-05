@@ -10,6 +10,7 @@ namespace Game
         {
             List<List<string>> map_List = new List<List<string>>();
             bool checkNewGame = false;
+            int Coin = 0;
             while (true)
             {
                 DisplayMenu();
@@ -32,8 +33,7 @@ namespace Game
                     else if (choice == 1)
                     {
                         checkNewGame = true;
-                        DisplayMap(map_List, true);
-                        ChooseBuilding();
+                        newGame(map_List);
                     }
                     else if (choice == 2)
                     {
@@ -54,6 +54,16 @@ namespace Game
                 {
                     Console.WriteLine(choiceError.Message + "\nPlease enter a valid choice\n");
                 }
+            }
+        }
+        static void newGame(List<List<string>> map_List)
+        {
+            int Coin = 16;
+            while (Coin != 0)
+            {
+                DisplayMap(map_List, true);
+                ChooseBuilding();
+                Coin--;
             }
         }
         static void DisplayMenu()
@@ -96,7 +106,6 @@ namespace Game
 
                 Console.WriteLine("Please enter a valid choice\n");
             }
-
         }
         static void DisplayMap(List<List<string>> map, bool check)
         {
