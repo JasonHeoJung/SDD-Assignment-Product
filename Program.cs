@@ -264,7 +264,9 @@ namespace Game
         }
         static int IndustryPoints(List<List<string>> map)
         {
+            int IndustryPoints = 0;
 
+            return IndustryPoints
         }
     }
 }
