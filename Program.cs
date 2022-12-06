@@ -269,17 +269,36 @@ namespace Game
             {
                 for (int y = 0; y < 20; y++)
                 {
-                    if (map[x][y]=="I")
+                    if (map[x][y]=="| I")
                     {
                         IndustryPoints++;
                         for (int x = 0; x < 20; x++)
                         {
                             for (int y = 0; y < 20; y++)
                             {
-                                if (map[x][y] == "I")
+                                if (map[x][y] == "| I")
                                 {
                                     IndustryPoints++;
                                     if (map[x])
+                                }
+                            }
+                        }
+                    }
+                    if (map[x][y] == "| *")
+                    {
+                        //Checks if there is a road building next to it
+                        if (map[x][y+1] == "| *")
+                        {
+                            if (y == 0)
+                            {
+                                IndustryPoints++;
+                            }
+                            else
+                            {
+                                //Checks whether there is a road building in the previous index, if there is it means the points is already added and if there isn't it means the point has not yet been added
+                                if (map[x][y - 1] != "| *" && map[x][y - 1] != "| ")
+                                {
+                                    IndustryPoints++;
                                 }
                             }
                         }
