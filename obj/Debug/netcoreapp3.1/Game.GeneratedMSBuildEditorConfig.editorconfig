@@ -1,3 +1,7 @@
 is_global = true
 build_property.RootNamespace = Game
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\
+=======
+build_property.ProjectDir = D:\SchoolStuff\SDD\Assignment2\
+>>>>>>> 33026e5dd8569575536fc01df5b764c31739667d
