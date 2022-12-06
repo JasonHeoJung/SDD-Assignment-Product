@@ -96,3 +96,10 @@ C:\Users\USER\Documents\School stuff\Y2 Sem 2\SDD\Assignment 1 Code\bin\Debug\ne
 C:\Users\USER\Documents\School stuff\Y2 Sem 2\SDD\Assignment 1 Code\bin\Debug\netcoreapp3.1\Game.dll
 C:\Users\USER\Documents\School stuff\Y2 Sem 2\SDD\Assignment 1 Code\bin\Debug\netcoreapp3.1\Game.pdb
 C:\Users\USER\Documents\School stuff\Y2 Sem 2\SDD\Assignment 1 Code\obj\Debug\netcoreapp3.1\Game.genruntimeconfig.cache
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\obj\Debug\netcoreapp3.1\Game.csproj.AssemblyReference.cache
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\obj\Debug\netcoreapp3.1\Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\obj\Debug\netcoreapp3.1\Game.AssemblyInfoInputs.cache
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\obj\Debug\netcoreapp3.1\Game.AssemblyInfo.cs
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\obj\Debug\netcoreapp3.1\Game.csproj.CoreCompileInputs.cache
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\obj\Debug\netcoreapp3.1\Game.dll
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\obj\Debug\netcoreapp3.1\Game.pdb

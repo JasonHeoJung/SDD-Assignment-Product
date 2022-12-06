@@ -278,9 +278,9 @@ namespace Game
             }
             return IndustryPoints
         }
-        static int IndustryCoins(List<List<string>> map)
-        {
+        //static int IndustryCoins(List<List<string>> map)
+        //{
 
-        }
+        //}
     }
 }
