@@ -249,7 +249,12 @@ namespace Game
             Console.WriteLine("[4] Return to Main Menu");
             int choice = Convert.ToInt32(Console.ReadLine());
 
-            if (choice == 0)
+            if (choice == 3)
+            {
+
+            }
+
+            if (choice == 4)
             {
                 DisplayMenu();
             }
