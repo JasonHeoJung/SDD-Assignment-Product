@@ -68,7 +68,6 @@ namespace Game
             {
                 DisplayMap(map_List, true);
                 ChooseBuilding();
-                OtherOptions();
                 Coin--;
             }
         }
@@ -102,6 +101,8 @@ namespace Game
                 allBuilding.RemoveAt(num);
                 buildFull.RemoveAt(num);
             }
+
+            OtherOptions();
 
             while (true)
             {
@@ -247,6 +248,7 @@ namespace Game
             Console.WriteLine("Other options: ");
             Console.WriteLine("[3] See Current Scores");
             Console.WriteLine("[4] Return to Main Menu");
+            Console.WriteLine("Please enter your option: ");
             int choice = Convert.ToInt32(Console.ReadLine());
 
             if (choice == 3)
