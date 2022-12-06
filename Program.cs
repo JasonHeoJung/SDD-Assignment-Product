@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -102,6 +103,8 @@ namespace Game
                 buildFull.RemoveAt(num);
             }
 
+            OtherOptions();
+
             while (true)
             {
                 // Return building chose by player
@@ -196,6 +199,14 @@ namespace Game
                     map.Add(new List<string> { "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| " });
                 }
             }
+            string letterGrid = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            Console.Write("    ");
+            for (int i = 0; i < 20; i++)
+            {
+                Console.Write(" " + letterGrid[i] + "  ");
+            }
+            Console.WriteLine();
+            Console.Write("   ");
             for (int i = 0; i < 20; i++)
             {
                 Console.Write("+---");
@@ -203,6 +214,14 @@ namespace Game
             Console.WriteLine("+");
             for (int i = 0; i < 20; i++)
             {
+                if (i >= 9)
+                {
+                    Console.Write((i + 1) + " ");
+                }
+                else
+                {
+                    Console.Write((i + 1) + "  ");
+                }
                 for (int n = 0; n < 20; n++)
                 {
                     //If length > 2, it indicates there is a building, hence it prints one less space
@@ -216,12 +235,52 @@ namespace Game
                     }
                 }
                 Console.WriteLine("|");
+                Console.Write("   ");
                 for (int n = 0; n < 20; n++)
                 {
                     Console.Write("+---");
                 }
                 Console.WriteLine("+");
             }
+        }
+
+        static void OtherOptions()
+        {
+            Console.WriteLine("Other options: ");
+            Console.WriteLine("[3] See Current Scores");
+            Console.WriteLine("[4] Return to Main Menu");
+            Console.WriteLine("Please enter your option: ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            if (choice == 3)
+            {
+
+            }
+
+            if (choice == 4)
+            {
+                DisplayMenu();
+            }
+        }
+        static int IndustryPoints(List<List<string>> map)
+        {
+            int IndustryPoints = 0;
+            for (int x = 0; x < 20; x++)
+            {
+                for (int y = 0; y < 20; y++)
+                {
+                    if (map[x][y]=="I")
+                    {
+                        IndustryPoints++;
+                    }
+                }
+                Console.WriteLine();
+            }
+            return IndustryPoints
+        }
+        static int IndustryCoins(List<List<string>> map)
+        {
+
         }
     }
 }
