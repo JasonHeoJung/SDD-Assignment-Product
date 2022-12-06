@@ -272,15 +272,51 @@ namespace Game
                     if (map[x][y]=="I")
                     {
                         IndustryPoints++;
+                        for (int x = 0; x < 20; x++)
+                        {
+                            for (int y = 0; y < 20; y++)
+                            {
+                                if (map[x][y] == "I")
+                                {
+                                    IndustryPoints++;
+                                    if (map[x])
+                                }
+                            }
+                        }
                     }
                 }
-                Console.WriteLine();
             }
             return IndustryPoints
         }
-        //static int IndustryCoins(List<List<string>> map)
-        //{
-
-        //}
+        static int IndustryCoins(List<List<string>> map)
+        {
+            int IndustryCoins = 0;
+            for (int x = 0; x < 20; x++)
+            {
+                for (int y = 0; y < 20; y++)
+                {
+                    if (map[x][y] == "I")
+                    {
+                        if (map[x][y-1]=="R")
+                        {
+                            IndustryCoins++;
+                        }
+                        else if (map[x - 1][y] == "R")
+                        {
+                            IndustryCoins++;
+                        }
+                        else if (map[x][y + 1][ == "R")
+                        {
+                            IndustryCoins++;
+                        }
+                        else if (map[x + 1][y] == "R")
+                        {
+                            IndustryCoins++;
+                        }
+                    }
+                }
+            }
+            return IndustryCoins;
+        }
     }
 }
