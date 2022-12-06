@@ -265,8 +265,22 @@ namespace Game
         static int IndustryPoints(List<List<string>> map)
         {
             int IndustryPoints = 0;
-
+            for (int x = 0; x < 20; x++)
+            {
+                for (int y = 0; y < 20; y++)
+                {
+                    if (map[x][y]=="I")
+                    {
+                        IndustryPoints++;
+                    }
+                }
+                Console.WriteLine();
+            }
             return IndustryPoints
+        }
+        static int IndustryCoins(List<List<string>> map)
+        {
+
         }
     }
 }
