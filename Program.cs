@@ -68,7 +68,7 @@ namespace Game
             {
                 DisplayMap(map_List, true);
                 string b = ChooseBuilding();
-                PlaceBuilding(map_List, b, 16-Coin);
+                PlaceBuilding(map_List, b, 16 - Coin);
                 Coin--;
             }
         }
@@ -98,7 +98,7 @@ namespace Game
             {
                 int num = rnd.Next(allBuilding.Count);
                 randomBuilding.Add(allBuilding[num]);
-                Console.WriteLine("[{0}] {1}", i+1, buildFull[num]);
+                Console.WriteLine("[{0}] {1}", i + 1, buildFull[num]);
                 allBuilding.RemoveAt(num);
                 buildFull.RemoveAt(num);
             }
@@ -153,7 +153,7 @@ namespace Game
                 y -= 1;
 
                 //Console.WriteLine("X: {0} Y: {1}", x, y);
-                if ( 0 <= x && x < 20 && 0 <= y && y < 20)
+                if (0 <= x && x < 20 && 0 <= y && y < 20)
                 {
                     //  if map is empty, can place anywhere
                     if (bcount == 0)
@@ -169,7 +169,7 @@ namespace Game
                         {
                             check.Add(map[y + 1][x]);
                         }
-                        
+
                         if (y != 0)
                         {
                             check.Add(map[y - 1][x]);
@@ -179,7 +179,7 @@ namespace Game
                         {
                             check.Add(map[y][x + 1]);
                         }
-                        
+
                         if (x != 0)
                         {
                             check.Add(map[y][x - 1]);
@@ -187,7 +187,8 @@ namespace Game
 
 
                         // check if current location has a building 
-                        if (allBuilding.Contains(map[y][x])){
+                        if (allBuilding.Contains(map[y][x]))
+                        {
                             Console.WriteLine("New Building cannot be placed on an existing building!");
                         }
                         // location selected is valid
@@ -202,7 +203,7 @@ namespace Game
                             Console.WriteLine("New Building must be placed next to an existing building!");
                         }
                     }
-                    
+
                 }
                 else
                 {
@@ -223,7 +224,7 @@ namespace Game
                 map.Clear();
                 for (int i = 0; i < 20; i++)
                 {
-                    map.Add(new List<string> { "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| ", "| " });
+                    map.Add(new List<string> { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" });
                 }
             }
             string letterGrid = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -252,13 +253,13 @@ namespace Game
                 for (int n = 0; n < 20; n++)
                 {
                     //If length > 2, it indicates there is a building, hence it prints one less space
-                    if(map[i][n].Length > 2)
+                    if (map[i][n].Length > 0)
                     {
-                        Console.Write(map[i][n].ToString() + " ");
+                        Console.Write("| " + map[i][n].ToString() + " ");
                     }
                     else
                     {
-                        Console.Write(map[i][n].ToString() + "  ");
+                        Console.Write("|   ");
                     }
                 }
                 Console.WriteLine("|");
@@ -298,7 +299,7 @@ namespace Game
             // loop through the map to find each Residential Building
             for (int y = 0; y < 20; y++)
             {
-                for ( int x = 0; x < 20; x++)
+                for (int x = 0; x < 20; x++)
                 {
                     if (map[y][x] == "R")
                     {
@@ -329,7 +330,7 @@ namespace Game
                         // Calculate points for the residential building
                         foreach (string b in check)
                         {
-                            if (b ==  "R" || b == "C")
+                            if (b == "R" || b == "C")
                             {
                                 currentResP += 1;
                             }
@@ -359,14 +360,14 @@ namespace Game
             {
                 for (int y = 0; y < 20; y++)
                 {
-                    if (map[x][y] == "| I")
+                    if (map[x][y] == "I")
                     {
                         IndustryPoints++;
                         for (int x = 0; x < 20; x++)
                         {
                             for (int y = 0; y < 20; y++)
                             {
-                                if (map[x][y] == "| I")
+                                if (map[x][y] == "I")
                                 {
                                     IndustryPoints++;
                                     if (map[x]) ;
@@ -374,54 +375,37 @@ namespace Game
                             }
                         }
                     }
-                    if (map[x][y] == "| *")
+                    if (map[x][y] == "O")
                     {
-                        //Checks if there is a road building next to it
-                        if (map[x][y + 1] == "| *")
+                        //Checks if there is another park adjacent to it on y-axis
+                        if (map[x][y + 1] == "O")
                         {
-                            if (y == 0)
-                            {
-                                IndustryPoints++;
-                            }
-                            else
-                            {
-                                //Checks whether there is a road building in the previous index, if there is it means the points is already added and if there isn't it means the point has not yet been added
-                                if (map[x][y - 1] != "| *" && map[x][y - 1] != "| ")
-                                {
-                                    IndustryPoints++;
-                                }
-                            }
+                            IndustryPoints++;
                         }
-                        if (map[x][y] == "| O")
+
+                        //Checks if there is another park adjacent to it on y-axis
+                        if (map[x][y - 1] == "O")
                         {
-                            //Checks if there is another park adjacent to it on y-axis
-                            if (map[x][y + 1] == "| O")
-                            {
-                                IndustryPoints++;
-                            }
+                            IndustryPoints++;
+                        }
 
-                            //Checks if there is another park adjacent to it on y-axis
-                            if (map[x][y - 1] == "| O")
-                            {
-                                IndustryPoints++;
-                            }
+                        //Checks if there is another park adjacent to it on x-axis
+                        if (map[x + 1][y] == "O")
+                        {
+                            IndustryPoints++;
+                        }
 
-                            //Checks if there is another park adjacent to it on x-axis
-                            if (map[x + 1][y] == "| O")
-                            {
-                                IndustryPoints++;
-                            }
-
-                            //Checks if there is another park adjacent to it on x-axis
-                            if (map[x + 1][y] == "| O")
-                            {
-                                IndustryPoints++;
-                            }
+                        //Checks if there is another park adjacent to it on x-axis
+                        if (map[x + 1][y] == "O")
+                        {
+                            IndustryPoints++;
                         }
                     }
                 }
             }
             return IndustryPoints;
+        }
+
         }
         static int IndustryCoins(List<List<string>> map)
         {
@@ -432,7 +416,7 @@ namespace Game
                 {
                     if (map[x][y] == "I")
                     {
-                        if (map[x][y-1]=="R")
+                        if (map[x][y - 1] == "R")
                         {
                             IndustryCoins++;
                         }
@@ -452,6 +436,37 @@ namespace Game
                 }
             }
             return IndustryCoins;
+        }
+
+        static int RoadPoints(List<List<string>> map)
+        {
+            int roadPoints = 0;
+            for (int x = 0; x < 20; x++)
+            {
+                for (int y = 0; y < 20; y++)
+                {
+                    if (map[x][y] == "*")
+                    {
+                        //Checks if there is a road building next to it
+                        if (map[x][y + 1] == "*")
+                        {
+                            if (y == 0)
+                            {
+                                roadPoints++;
+                            }
+                            else
+                            {
+                                //Checks whether there is a road building in the previous index, if there is it means the points is already added and if there isn't it means the point has not yet been added
+                                if (map[x][y - 1] != "*" && map[x][y - 1] != "")
+                                {
+                                    roadPoints++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return roadPoints;
         }
     }
 }
