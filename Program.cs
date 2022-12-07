@@ -375,38 +375,11 @@ namespace Game
                             }
                         }
                     }
-                    if (map[x][y] == "O")
-                    {
-                        //Checks if there is another park adjacent to it on y-axis
-                        if (map[x][y + 1] == "O")
-                        {
-                            IndustryPoints++;
-                        }
-
-                        //Checks if there is another park adjacent to it on y-axis
-                        if (map[x][y - 1] == "O")
-                        {
-                            IndustryPoints++;
-                        }
-
-                        //Checks if there is another park adjacent to it on x-axis
-                        if (map[x + 1][y] == "O")
-                        {
-                            IndustryPoints++;
-                        }
-
-                        //Checks if there is another park adjacent to it on x-axis
-                        if (map[x + 1][y] == "O")
-                        {
-                            IndustryPoints++;
-                        }
-                    }
                 }
             }
             return IndustryPoints;
         }
 
-        }
         static int IndustryCoins(List<List<string>> map)
         {
             int IndustryCoins = 0;
@@ -467,6 +440,46 @@ namespace Game
                 }
             }
             return roadPoints;
+        }
+
+        static int ParkPoints(List<List<string>> map)
+        {
+            int parkPoints = 0;
+
+            // loop through the map to find each Park
+            for (int y = 0; y < 20; y++)
+            {
+                for (int x = 0; x < 20; x++)
+                {
+                    if (map[x][y] == "O")
+                    {
+                        //Checks if there is another park adjacent to it on the right
+                        if (map[x][y + 1] == "O")
+                        {
+                            parkPoints += 1;
+                        }
+
+                        //Checks if there is another park adjacent to it on the left
+                        if (map[x][y - 1] == "O")
+                        {
+                            parkPoints += 1;
+                        }
+
+                        //Checks if there is another park above that is adjacent to it
+                        if (map[x + 1][y] == "O")
+                        {
+                            parkPoints += 1;
+                        }
+
+                        //Checks if there is another park below that is adjacent to it
+                        if (map[x + 1][y] == "O")
+                        {
+                            parkPoints += 1;
+                        }
+                    }
+                }
+            }
+            return parkPoints;
         }
     }
 }
