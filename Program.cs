@@ -481,5 +481,12 @@ namespace Game
             }
             return parkPoints;
         }
+
+        static int CurrentTotalScore()
+        {
+            int currentTotalPts = 0;
+            
+            //Add points from all buildings
+        }
     }
 }
