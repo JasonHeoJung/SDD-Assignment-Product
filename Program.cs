@@ -249,7 +249,7 @@ namespace Game
             Console.WriteLine("Other options: ");
             Console.WriteLine("[3] See Current Scores");
             Console.WriteLine("[4] Return to Main Menu");
-            Console.WriteLine("Please enter your option: ");
+            Console.WriteLine("Please enter your option (1 or 2 to place a building, 3 or 4 to see high scores or return to main menu respectively: ");
             int choice = Convert.ToInt32(Console.ReadLine());
 
             if (choice == 3)
@@ -279,7 +279,7 @@ namespace Game
                                 if (map[x][y] == "| I")
                                 {
                                     IndustryPoints++;
-                                    if (map[x])
+                                    if (map[x]) ;
                                 }
                             }
                         }
@@ -302,10 +302,36 @@ namespace Game
                                 }
                             }
                         }
+                        if (map[x][y] == "| O")
+                        {
+                            //Checks if there is another park adjacent to it on y-axis
+                            if (map[x][y+1] == "| O")
+                            {
+                                IndustryPoints++;
+                            }
+
+                            //Checks if there is another park adjacent to it on y-axis
+                            if (map[x][y - 1] == "| O")
+                            {
+                                IndustryPoints++;
+                            }
+
+                            //Checks if there is another park adjacent to it on x-axis
+                            if (map[x + 1][y] == "| O")
+                            {
+                                IndustryPoints++;
+                            }
+
+                            //Checks if there is another park adjacent to it on x-axis
+                            if (map[x + 1][y] == "| O")
+                            {
+                                IndustryPoints++;
+                            }
+                        }
                     }
                 }
             }
-            return IndustryPoints
+            return IndustryPoints;
         }
         static int IndustryCoins(List<List<string>> map)
         {
@@ -324,7 +350,7 @@ namespace Game
                         {
                             IndustryCoins++;
                         }
-                        else if (map[x][y + 1][ == "R")
+                        else if (map[x][y + 1] == "R")
                         {
                             IndustryCoins++;
                         }
