@@ -41,7 +41,6 @@ namespace Game
                     }
                     else if (choice == 2)
                     {
-                        
 
                     }
                     else if (choice == 3)
@@ -290,77 +289,140 @@ namespace Game
                 DisplayMenu();
             }
         }
-        //static int IndustryPoints(List<List<string>> map)
-        //{
-        //    int IndustryPoints = 0;
-        //    for (int x = 0; x < 20; x++)
-        //    {
-        //        for (int y = 0; y < 20; y++)
-        //        {
-        //            if (map[x][y]=="| I")
-        //            {
-        //                IndustryPoints++;
-        //                for (int x = 0; x < 20; x++)
-        //                {
-        //                    for (int y = 0; y < 20; y++)
-        //                    {
-        //                        if (map[x][y] == "| I")
-        //                        {
-        //                            IndustryPoints++;
-        //                            if (map[x]) ;
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //            if (map[x][y] == "| *")
-        //            {
-        //                //Checks if there is a road building next to it
-        //                if (map[x][y+1] == "| *")
-        //                {
-        //                    if (y == 0)
-        //                    {
-        //                        IndustryPoints++;
-        //                    }
-        //                    else
-        //                    {
-        //                        //Checks whether there is a road building in the previous index, if there is it means the points is already added and if there isn't it means the point has not yet been added
-        //                        if (map[x][y - 1] != "| *" && map[x][y - 1] != "| ")
-        //                        {
-        //                            IndustryPoints++;
-        //                        }
-        //                    }
-        //                }
-        //                if (map[x][y] == "| O")
-        //                {
-        //                    //Checks if there is another park adjacent to it on y-axis
-        //                    if (map[x][y+1] == "| O")
-        //                    {
-        //                        IndustryPoints++;
-        //                    }
 
-        //                    //Checks if there is another park adjacent to it on y-axis
-        //                    if (map[x][y - 1] == "| O")
-        //                    {
-        //                        IndustryPoints++;
-        //                    }
+        // Calculate Points from all Residential Buildings on the map
+        static int ResidentialPoints(List<List<string>> map)
+        {
+            int residentialPoints = 0;
 
-        //                    //Checks if there is another park adjacent to it on x-axis
-        //                    if (map[x + 1][y] == "| O")
-        //                    {
-        //                        IndustryPoints++;
-        //                    }
+            // loop through the map to find each Residential Building
+            for (int y = 0; y < 20; y++)
+            {
+                for ( int x = 0; x < 20; x++)
+                {
+                    if (map[y][x] == "R")
+                    {
+                        int currentResP = 0;
 
-        //                    //Checks if there is another park adjacent to it on x-axis
-        //                    if (map[x + 1][y] == "| O")
-        //                    {
-        //                        IndustryPoints++;
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return IndustryPoints;
-        //}
+                        //Create a List of all the buildings adjacent to the Residential Building
+                        List<string> check = new List<string>();
+                        if (y != 19)
+                        {
+                            check.Add(map[y + 1][x]);
+                        }
+
+                        if (y != 0)
+                        {
+                            check.Add(map[y - 1][x]);
+                        }
+
+                        if (x != 19)
+                        {
+                            check.Add(map[y][x + 1]);
+                        }
+
+                        if (x != 0)
+                        {
+                            check.Add(map[y][x - 1]);
+                        }
+
+                        // Calculate points for the residential building
+                        foreach (string b in check)
+                        {
+                            if (b ==  "R" || b == "C")
+                            {
+                                currentResP += 1;
+                            }
+                            else if (b == "O")
+                            {
+                                currentResP += 2;
+                            }
+                        }
+
+                        if (check.Contains("I"))
+                        {
+                            currentResP = 1;
+                        }
+
+                        //Add to the total points for all residential buildings
+                        residentialPoints += currentResP;
+                    }
+                }
+            }
+            return residentialPoints;
+        }
+
+        static int IndustryPoints(List<List<string>> map)
+        {
+            int IndustryPoints = 0;
+            for (int x = 0; x < 20; x++)
+            {
+                for (int y = 0; y < 20; y++)
+                {
+                    if (map[x][y] == "| I")
+                    {
+                        IndustryPoints++;
+                        for (int x = 0; x < 20; x++)
+                        {
+                            for (int y = 0; y < 20; y++)
+                            {
+                                if (map[x][y] == "| I")
+                                {
+                                    IndustryPoints++;
+                                    if (map[x]) ;
+                                }
+                            }
+                        }
+                    }
+                    if (map[x][y] == "| *")
+                    {
+                        //Checks if there is a road building next to it
+                        if (map[x][y + 1] == "| *")
+                        {
+                            if (y == 0)
+                            {
+                                IndustryPoints++;
+                            }
+                            else
+                            {
+                                //Checks whether there is a road building in the previous index, if there is it means the points is already added and if there isn't it means the point has not yet been added
+                                if (map[x][y - 1] != "| *" && map[x][y - 1] != "| ")
+                                {
+                                    IndustryPoints++;
+                                }
+                            }
+                        }
+                        if (map[x][y] == "| O")
+                        {
+                            //Checks if there is another park adjacent to it on y-axis
+                            if (map[x][y + 1] == "| O")
+                            {
+                                IndustryPoints++;
+                            }
+
+                            //Checks if there is another park adjacent to it on y-axis
+                            if (map[x][y - 1] == "| O")
+                            {
+                                IndustryPoints++;
+                            }
+
+                            //Checks if there is another park adjacent to it on x-axis
+                            if (map[x + 1][y] == "| O")
+                            {
+                                IndustryPoints++;
+                            }
+
+                            //Checks if there is another park adjacent to it on x-axis
+                            if (map[x + 1][y] == "| O")
+                            {
+                                IndustryPoints++;
+                            }
+                        }
+                    }
+                }
+            }
+            return IndustryPoints;
+        }
         static int IndustryCoins(List<List<string>> map)
         {
             int IndustryCoins = 0;
