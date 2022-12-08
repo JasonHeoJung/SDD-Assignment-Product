@@ -277,12 +277,12 @@ namespace Game
             Console.WriteLine("Other options: ");
             Console.WriteLine("[3] See Current Scores");
             Console.WriteLine("[4] Return to Main Menu");
-            Console.Write("Please enter your option (1 or 2 to place a building, 3 or 4 to see high scores or return to main menu respectively: ");
+            Console.Write("Please enter your option (1 or 2 to place a building, 3 or 4 to see high scores or return to main menu respectively): ");
             int choice = Convert.ToInt32(Console.ReadLine());
 
             if (choice == 3)
             {
-
+                CurrentTotalScore();
             }
 
             if (choice == 4)
@@ -485,8 +485,16 @@ namespace Game
         static int CurrentTotalScore()
         {
             int currentTotalPts = 0;
+
+            // Returning the value of points from each building
+            ResidentialPoints();
+            IndustryPoints();
+            RoadPoints();
+            ParkPoints();
             
             //Add points from all buildings
+            currentTotalPts = ResidentialPoints + IndustryPoints + RoadPoints + ParkPoints;
+            return currentTotalPts;
         }
     }
 }
