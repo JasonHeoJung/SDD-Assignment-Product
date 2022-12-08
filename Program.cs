@@ -277,12 +277,12 @@ namespace Game
             Console.WriteLine("Other options: ");
             Console.WriteLine("[3] See Current Scores");
             Console.WriteLine("[4] Return to Main Menu");
-            Console.Write("Please enter your option (1 or 2 to place a building, 3 or 4 to see high scores or return to main menu respectively: ");
+            Console.Write("Please enter your option (1 or 2 to place a building, 3 or 4 to see high scores or return to main menu respectively): ");
             int choice = Convert.ToInt32(Console.ReadLine());
 
             if (choice == 3)
             {
-
+                CurrentTotalScore();
             }
 
             if (choice == 4)
@@ -375,38 +375,11 @@ namespace Game
                             }
                         }
                     }
-                    if (map[x][y] == "O")
-                    {
-                        //Checks if there is another park adjacent to it on y-axis
-                        if (map[x][y + 1] == "O")
-                        {
-                            IndustryPoints++;
-                        }
-
-                        //Checks if there is another park adjacent to it on y-axis
-                        if (map[x][y - 1] == "O")
-                        {
-                            IndustryPoints++;
-                        }
-
-                        //Checks if there is another park adjacent to it on x-axis
-                        if (map[x + 1][y] == "O")
-                        {
-                            IndustryPoints++;
-                        }
-
-                        //Checks if there is another park adjacent to it on x-axis
-                        if (map[x + 1][y] == "O")
-                        {
-                            IndustryPoints++;
-                        }
-                    }
                 }
             }
             return IndustryPoints;
         }
 
-        }
         static int IndustryCoins(List<List<string>> map)
         {
             int IndustryCoins = 0;
@@ -467,6 +440,61 @@ namespace Game
                 }
             }
             return roadPoints;
+        }
+
+        static int ParkPoints(List<List<string>> map)
+        {
+            int parkPoints = 0;
+
+            // loop through the map to find each Park
+            for (int y = 0; y < 20; y++)
+            {
+                for (int x = 0; x < 20; x++)
+                {
+                    if (map[x][y] == "O")
+                    {
+                        //Checks if there is another park adjacent to it on the right
+                        if (map[x][y + 1] == "O")
+                        {
+                            parkPoints += 1;
+                        }
+
+                        //Checks if there is another park adjacent to it on the left
+                        if (map[x][y - 1] == "O")
+                        {
+                            parkPoints += 1;
+                        }
+
+                        //Checks if there is another park above that is adjacent to it
+                        if (map[x + 1][y] == "O")
+                        {
+                            parkPoints += 1;
+                        }
+
+                        //Checks if there is another park below that is adjacent to it
+                        if (map[x + 1][y] == "O")
+                        {
+                            parkPoints += 1;
+                        }
+                    }
+                }
+            }
+            return parkPoints;
+        }
+
+        static int CurrentTotalScore()
+        {
+            int currentTotalPts = 0;
+
+            // Returning the value of points from each building
+            ResidentialPoints();
+            IndustryPoints();
+            RoadPoints();
+            ParkPoints();
+            
+            //Add points from all buildings
+            currentTotalPts = ResidentialPoints + IndustryPoints + RoadPoints + ParkPoints;
+            return currentTotalPts;
         }
     }
 }
