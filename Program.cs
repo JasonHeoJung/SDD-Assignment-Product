@@ -481,6 +481,70 @@ namespace Game
             }
             return parkPoints;
         }
+        static int CommercialPoints(List<List<string>> map)
+        {
+            int comPoints = 0;
+
+            // loop through the map to find each Commercia
+            for (int y = 0; y < 20; y++)
+            {
+                for (int x = 0; x < 20; x++)
+                {
+                    if (map[x][y] == "C")
+                    {
+                        if (map[x][y + 1] == "C")
+                        {
+                            comPoints += 1;
+                        }
+                        if (map[x][y - 1] == "C")
+                        {
+                            comPoints += 1;
+                        }
+                        if (map[x + 1][y] == "C")
+                        {
+                            comPoints += 1;
+                        }
+                        if (map[x + 1][y] == "C")
+                        {
+                            comPoints += 1;
+                        }
+                    }
+                }
+            }
+            return comPoints;
+        }
+        static int CommercialCoins(List<List<string>> map)
+        {
+            int comCoins = 0;
+
+            // loop through the map to find each Commercia
+            for (int y = 0; y < 20; y++)
+            {
+                for (int x = 0; x < 20; x++)
+                {
+                    if (map[x][y] == "C")
+                    {
+                        if (map[x][y + 1] == "R")
+                        {
+                            comCoins += 1;
+                        }
+                        if (map[x][y - 1] == "R")
+                        {
+                            comCoins += 1;
+                        }
+                        if (map[x + 1][y] == "R")
+                        {
+                            comCoins += 1;
+                        }
+                        if (map[x + 1][y] == "R")
+                        {
+                            comCoins += 1;
+                        }
+                    }
+                }
+            }
+            return comCoins;
+        }
 
         static int CurrentTotalScore()
         {
@@ -491,6 +555,7 @@ namespace Game
             IndustryPoints();
             RoadPoints();
             ParkPoints();
+            CommercialPoints();
             
             //Add points from all buildings
             currentTotalPts = ResidentialPoints + IndustryPoints + RoadPoints + ParkPoints;
