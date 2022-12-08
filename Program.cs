@@ -67,7 +67,7 @@ namespace Game
             while (Coin != 0)
             {
                 DisplayMap(map_List, true);
-                string b = ChooseBuilding();
+                string b = ChooseBuilding(map_List);
                 PlaceBuilding(map_List, b, 16 - Coin);
                 Coin--;
             }
@@ -84,9 +84,8 @@ namespace Game
 
         }
 
-        static string ChooseBuilding()
+        static string ChooseBuilding(List<List<string>> map)
         {
-
             List<string> allBuilding = new List<string>() { "R", "I", "C", "O", "*" };
             List<string> randomBuilding = new List<string>();
             List<string> buildFull = new List<string>() { "Residential", "Industry", "Commercial", "Park", "Road" };
@@ -103,7 +102,7 @@ namespace Game
                 buildFull.RemoveAt(num);
             }
 
-            OtherOptions();
+            OtherOptions(map);
 
             while (true)
             {
@@ -121,7 +120,6 @@ namespace Game
                     Console.WriteLine("Please enter a valid choice\n");
                 }
             }
-
         }
 
         static void PlaceBuilding(List<List<string>> map, string building, int bcount)
@@ -272,7 +270,7 @@ namespace Game
             }
         }
 
-        static void OtherOptions()
+        static void OtherOptions(List<List<string>> map)
         {
             Console.WriteLine("Other options: ");
             Console.WriteLine("[3] See Current Scores");
@@ -282,7 +280,7 @@ namespace Game
 
             if (choice == 3)
             {
-                CurrentTotalScore();
+                Console.WriteLine("Current score: " + CurrentTotalScore(map));
             }
 
             if (choice == 4)
@@ -363,14 +361,14 @@ namespace Game
                     if (map[x][y] == "I")
                     {
                         IndustryPoints++;
-                        for (int x = 0; x < 20; x++)
+
+                        for (int a = 0; a < 20; a++)
                         {
-                            for (int y = 0; y < 20; y++)
+                            for (int b = 0; b < 20; b++)
                             {
-                                if (map[x][y] == "I")
+                                if (map[a][b] == "I")
                                 {
                                     IndustryPoints++;
-                                    if (map[x]) ;
                                 }
                             }
                         }
@@ -485,7 +483,7 @@ namespace Game
         {
             int comPoints = 0;
 
-            // loop through the map to find each Commercia
+            // loop through the map to find each Commercial
             for (int y = 0; y < 20; y++)
             {
                 for (int x = 0; x < 20; x++)
@@ -517,7 +515,7 @@ namespace Game
         {
             int comCoins = 0;
 
-            // loop through the map to find each Commercia
+            // loop through the map to find each Commercial
             for (int y = 0; y < 20; y++)
             {
                 for (int x = 0; x < 20; x++)
@@ -546,20 +544,10 @@ namespace Game
             return comCoins;
         }
 
-        static int CurrentTotalScore()
+        static int CurrentTotalScore(List<List<string>> map)
         {
-            int currentTotalPts = 0;
-
-            // Returning the value of points from each building
-            ResidentialPoints();
-            IndustryPoints();
-            RoadPoints();
-            ParkPoints();
-            CommercialPoints();
-            
-            //Add points from all buildings
-            currentTotalPts = ResidentialPoints + IndustryPoints + RoadPoints + ParkPoints;
-            return currentTotalPts;
+            // Sum of points at current position
+            return ResidentialPoints(map) + IndustryPoints(map) + RoadPoints(map) + ParkPoints(map) + CommercialPoints(map);
         }
     }
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jason\\Source\\Repos\\SDD-Assignment-Product\\Game.csproj": {}
+    "C:\\Users\\Keanan\\Source\\Repos\\JasonHeoJung\\SDD-Assignment-Product\\Game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jason\\Source\\Repos\\SDD-Assignment-Product\\Game.csproj": {
+    "C:\\Users\\Keanan\\Source\\Repos\\JasonHeoJung\\SDD-Assignment-Product\\Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jason\\Source\\Repos\\SDD-Assignment-Product\\Game.csproj",
+        "projectUniqueName": "C:\\Users\\Keanan\\Source\\Repos\\JasonHeoJung\\SDD-Assignment-Product\\Game.csproj",
         "projectName": "Game",
-        "projectPath": "C:\\Users\\jason\\Source\\Repos\\SDD-Assignment-Product\\Game.csproj",
-        "packagesPath": "C:\\Users\\jason\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jason\\Source\\Repos\\SDD-Assignment-Product\\obj\\",
+        "projectPath": "C:\\Users\\Keanan\\Source\\Repos\\JasonHeoJung\\SDD-Assignment-Product\\Game.csproj",
+        "packagesPath": "C:\\Users\\Keanan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Keanan\\Source\\Repos\\JasonHeoJung\\SDD-Assignment-Product\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jason\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Keanan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
