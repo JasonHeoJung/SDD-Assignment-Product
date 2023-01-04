@@ -677,7 +677,6 @@ namespace Game
                     index++;
                 }
             }
-            Console.WriteLine(sampleScores.Count);
             Console.WriteLine("-------------------------------");
         }
         
@@ -692,13 +691,16 @@ namespace Game
                 if(i < totalFinalScore) 
                 {
                     sampleScores.Insert(i, totalFinalScore);
+                    Console.Write("Enter a name: ");
+                    string name = Console.ReadLine();
+                    sampleNames.Add(name);
                 }
-            }
+            }   
 
-            // add item at the back of list if it is lowest score
-            if(sampleScores[listSize-1]>totalFinalScore)
-            {
-                sampleScores.Add(totalFinalScore);
+            //limiting list to 10 elements (delete all element starting from index 10 onwards)
+            if(sampleScores.Count > 10) 
+            { 
+                sampleScores.RemoveRange(10, sampleScores.Count-10);
             }
         }
     }
