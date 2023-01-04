@@ -65,7 +65,7 @@ namespace Game
                 DisplayMap(map_List, true);
                 Console.WriteLine("=========================");
                 Console.WriteLine("Coins: " + Coin);
-                string b = ChooseBuilding(map_List);
+                string b = ChooseBuilding(map_List, Coin);
                 if (b == "Exit")
                 {
                     break;
@@ -86,7 +86,7 @@ namespace Game
 
         }
 
-        static string ChooseBuilding(List<List<string>> map)
+        static string ChooseBuilding(List<List<string>> map, int Coin)
         {
             List<string> allBuilding = new List<string>() { "R", "I", "C", "O", "*" };
             List<string> randomBuilding = new List<string>();
@@ -125,7 +125,7 @@ namespace Game
                 }
                 else if (choice == "4")
                 {
-                    SaveGame(map);
+                    SaveGame(map, Coin);
                 }
                 else if (choice == "5")
                 {
@@ -284,7 +284,7 @@ namespace Game
             }
         }
 
-        static void OtherOptions(List<List<string>> map)
+        /*static void OtherOptions(List<List<string>> map)
         {
             Console.WriteLine("Other options: ");
             Console.WriteLine("[3] See Current Scores");
@@ -299,13 +299,13 @@ namespace Game
             }
             if (choice == 4)
             {
-                SaveGame(map);
+                SaveGame(map, Coin);
             }
             if (choice == 5)
             {
                 DisplayMenu();
             }
-        }
+        }*/
 
         // Calculate Points from all Residential Buildings on the map
         static int ResidentialPoints(List<List<string>> map)
@@ -568,7 +568,7 @@ namespace Game
             return ResidentialPoints(map) + IndustryPoints(map) + RoadPoints(map) + ParkPoints(map) + CommercialPoints(map);
         }
 
-        static void SaveGame(List<List<string>> map)
+        static void SaveGame(List<List<string>> map, int Coin)
         {
             using (StreamWriter sw = new StreamWriter("SavedGame.txt", false))
             {
@@ -584,10 +584,11 @@ namespace Game
                         //{
                         //    sw.Write(map[i][n] + ", ");
                         //}
-                        sw.Write(map[i][n] + ", ");
+                        sw.Write(map[i][n] + ",");
                     }
                     sw.WriteLine();
                 }
+                sw.WriteLine(Coin);
             }
             Console.WriteLine("Game Saved!");
         }
@@ -595,32 +596,44 @@ namespace Game
         static void LoadGame()
         {
             List<List<string>> map = new List<List<string>>();
+            int Coin = 0;
             if (File.Exists("SavedGame.txt"))
             {
                 using (StreamReader sr = new StreamReader("SavedGame.txt"))
                 {
                     string s;
                     int row = 0;
-                    while ((s = sr.ReadLine()) != null)
+                    for(int n = 0; n < 20; n++)
                     {
+                        s = sr.ReadLine();
                         List<string> tempRow = new List<string>();
                         string[] builds = s.Split(',');
                         for (int i = 0; i < 20; i++)
                         {
+/*                            if (builds[i] == " ")
+                            {
+                                tempRow.Add("");
+                            }
+                            else
+                            {
+                                tempRow.Add(builds[i]);
+                            }*/
                             tempRow.Add(builds[i]);
                         }
                         map.Add(tempRow);
                         row++;
+                        //Coin = Convert.ToInt32(builds[20]);
                     }
+                    s = sr.ReadLine();
+                    Coin = Convert.ToInt32(s);
                 }
-                int Coin = 16;
                 Console.WriteLine("Game Loaded!");
                 while (Coin != 0)
                 {
                     DisplayMap(map, false);
                     Console.WriteLine("=========================");
                     Console.WriteLine("Coins: " + Coin);
-                    string b = ChooseBuilding(map);
+                    string b = ChooseBuilding(map, Coin);
                     if (b == "Exit")
                     {
                         break;
