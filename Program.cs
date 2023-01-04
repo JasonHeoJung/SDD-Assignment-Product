@@ -108,7 +108,8 @@ namespace Game
             }
             Console.WriteLine("Other options: ");
             Console.WriteLine("[3] See Current Scores");
-            Console.WriteLine("[4] Return to Main Menu");
+            Console.WriteLine("[4] Save Current Game");
+            Console.WriteLine("[5] Return to Main Menu");
 
             while (true)
             {
@@ -126,6 +127,10 @@ namespace Game
                     Console.WriteLine("Current score: " + CurrentTotalScore(map));
                 }
                 else if (choice == "4")
+                {
+                    SaveGame(map);
+                }
+                else if (choice == "5")
                 {
                     return "Exit";
                 }
@@ -225,15 +230,18 @@ namespace Game
         }
         static void DisplayMap(List<List<string>> map, bool check)
         {
-            if (map.Count > 0)
-            {
-                check = false;
-            }
+            //if (map.Count > 0)
+            //{
+            //    check = false;
+            //}
             //Generates a new empty 20x20 grid if new game is generated
             if (check)
             {
                 //Empty list containing grid
-                map.Clear();
+                for (int i = 0; i < 20; i++)
+                {
+                    map[i].Clear();
+                }
                 for (int i = 0; i < 20; i++)
                 {
                     map.Add(new List<string> { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" });
