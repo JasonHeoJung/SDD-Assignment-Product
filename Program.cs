@@ -11,11 +11,6 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            //Nested List to store grid for each row 
-            List<List<string>> map_List = new List<List<string>>();
-            //Boolean to check if a new game is generated
-            bool checkNewGame = false;
-            int Coin = 0;
             while (true)
             {
                 DisplayMenu();
@@ -37,12 +32,11 @@ namespace Game
                     }
                     else if (choice == 1)
                     {
-                        checkNewGame = true;
-                        newGame(map_List);
+                        newGame();
                     }
                     else if (choice == 2)
                     {
-                        LoadGame(map_List);
+                        LoadGame();
                     }
                     else if (choice == 3)
                     {
@@ -62,8 +56,9 @@ namespace Game
                 }
             }
         }
-        static void newGame(List<List<string>> map_List)
+        static void newGame()
         {
+            List<List<string>> map_List = new List<List<string>>();
             int Coin = 16;
             while (Coin != 0)
             {
@@ -239,11 +234,6 @@ namespace Game
             //Generates a new empty 20x20 grid if new game is generated
             if (check)
             {
-                //Empty list containing grid
-                for (int i = 0; i < 20; i++)
-                {
-                    map[i].Clear();
-                }
                 for (int i = 0; i < 20; i++)
                 {
                     map.Add(new List<string> { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" });
@@ -602,9 +592,9 @@ namespace Game
             Console.WriteLine("Game Saved!");
         }
 
-        static void LoadGame(List<List<string>> map)
+        static void LoadGame()
         {
-            map.Clear();
+            List<List<string>> map = new List<List<string>>();
             if (File.Exists("SavedGame.txt"))
             {
                 using (StreamReader sr = new StreamReader("SavedGame.txt"))
@@ -623,7 +613,21 @@ namespace Game
                         row++;
                     }
                 }
+                int Coin = 16;
                 Console.WriteLine("Game Loaded!");
+                while (Coin != 0)
+                {
+                    DisplayMap(map, false);
+                    Console.WriteLine("=========================");
+                    Console.WriteLine("Coins: " + Coin);
+                    string b = ChooseBuilding(map);
+                    if (b == "Exit")
+                    {
+                        break;
+                    }
+                    PlaceBuilding(map, b, 16 - Coin);
+                    Coin--;
+                }
             }
             else
             {
