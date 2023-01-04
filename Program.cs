@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Game
 {
@@ -41,7 +42,7 @@ namespace Game
                     }
                     else if (choice == 2)
                     {
-
+                        LoadGame(map_List);
                     }
                     else if (choice == 3)
                     {
@@ -274,16 +275,20 @@ namespace Game
         {
             Console.WriteLine("Other options: ");
             Console.WriteLine("[3] See Current Scores");
-            Console.WriteLine("[4] Return to Main Menu");
-            Console.Write("Please enter your option (1 or 2 to place a building, 3 or 4 to see high scores or return to main menu respectively): ");
+            Console.WriteLine("[4] Save Current Game");
+            Console.WriteLine("[5] Return to Main Menu");
+            Console.Write("Please enter your option (1 or 2 to place a building, 3 to see high scores, 4 to save current game, or 5 to return to main menu respectively): ");
             int choice = Convert.ToInt32(Console.ReadLine());
 
             if (choice == 3)
             {
                 Console.WriteLine("Current score: " + CurrentTotalScore(map));
             }
-
             if (choice == 4)
+            {
+                SaveGame(map);
+            }
+            if (choice == 5)
             {
                 DisplayMenu();
             }
@@ -549,5 +554,59 @@ namespace Game
             // Sum of points at current position
             return ResidentialPoints(map) + IndustryPoints(map) + RoadPoints(map) + ParkPoints(map) + CommercialPoints(map);
         }
+
+        static void SaveGame(List<List<string>> map)
+        {
+            using (StreamWriter sw = new StreamWriter("SavedGame.txt", false))
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    for (int n = 0; n < 20; n++)
+                    {
+                        //if (map[i][n] == "")
+                        //{
+                        //    sw.Write("?, ");
+                        //}
+                        //else
+                        //{
+                        //    sw.Write(map[i][n] + ", ");
+                        //}
+                        sw.Write(map[i][n] + ", ");
+                    }
+                    sw.WriteLine();
+                }
+            }
+            Console.WriteLine("Game Saved!");
+        }
+
+        static void LoadGame(List<List<string>> map)
+        {
+            map.Clear();
+            if (File.Exists("SavedGame.txt"))
+            {
+                using (StreamReader sr = new StreamReader("SavedGame.txt"))
+                {
+                    string s;
+                    int row = 0;
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        List<string> tempRow = new List<string>();
+                        string[] builds = s.Split(',');
+                        for (int i = 0; i < 20; i++)
+                        {
+                            tempRow.Add(builds[i]);
+                        }
+                        map.Add(tempRow);
+                        row++;
+                    }
+                }
+                Console.WriteLine("Game Loaded!");
+            }
+            else
+            {
+                Console.WriteLine("There is currently no game saved. Please start a new game to proceed.");
+            }
+        }
+        
     }
 }
