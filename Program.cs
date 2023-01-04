@@ -68,6 +68,10 @@ namespace Game
             {
                 DisplayMap(map_List, true);
                 string b = ChooseBuilding(map_List);
+                if (b == "Exit")
+                {
+                    break;
+                }
                 PlaceBuilding(map_List, b, 16 - Coin);
                 Coin--;
             }
@@ -101,19 +105,28 @@ namespace Game
                 allBuilding.RemoveAt(num);
                 buildFull.RemoveAt(num);
             }
-
-            OtherOptions(map);
+            Console.WriteLine("Other options: ");
+            Console.WriteLine("[3] See Current Scores");
+            Console.WriteLine("[4] Return to Main Menu");
 
             while (true)
             {
                 // Return building chose by player
-                Console.Write("Choose Building to place: ");
+                Console.Write("Enter Option: ");
                 string choice = Console.ReadLine().Trim();
 
                 if (choice == "1" || choice == "2")
                 {
                     int index = Convert.ToInt32(choice);
                     return randomBuilding[index - 1];
+                }
+                else if (choice == "3")
+                {
+                    Console.WriteLine("Current score: " + CurrentTotalScore(map));
+                }
+                else if (choice == "4")
+                {
+                    return "Exit";
                 }
                 else
                 {
