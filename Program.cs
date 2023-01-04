@@ -701,6 +701,7 @@ namespace Game
             if(sampleScores.Count > 10) 
             { 
                 sampleScores.RemoveRange(10, sampleScores.Count-10);
+                sampleNames.RemoveRange(10, sampleNames.Count - 10);
             }
         }
     }
