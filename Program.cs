@@ -68,6 +68,8 @@ namespace Game
             while (Coin != 0)
             {
                 DisplayMap(map_List, true);
+                Console.WriteLine("=========================");
+                Console.WriteLine("Coins: " + Coin);
                 string b = ChooseBuilding(map_List);
                 if (b == "Exit")
                 {
