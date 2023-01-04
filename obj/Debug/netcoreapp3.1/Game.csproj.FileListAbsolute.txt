@@ -103,3 +103,17 @@ C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\obj\Debug\netcore
 C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\obj\Debug\netcoreapp3.1\Game.csproj.CoreCompileInputs.cache
 C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\obj\Debug\netcoreapp3.1\Game.dll
 C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\obj\Debug\netcoreapp3.1\Game.pdb
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\bin\Debug\netcoreapp3.1\Game.exe
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\bin\Debug\netcoreapp3.1\Game.deps.json
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\bin\Debug\netcoreapp3.1\Game.runtimeconfig.json
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\bin\Debug\netcoreapp3.1\Game.runtimeconfig.dev.json
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\bin\Debug\netcoreapp3.1\Game.dll
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\bin\Debug\netcoreapp3.1\Game.pdb
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\obj\Debug\netcoreapp3.1\Game.csproj.AssemblyReference.cache
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\obj\Debug\netcoreapp3.1\Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\obj\Debug\netcoreapp3.1\Game.AssemblyInfoInputs.cache
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\obj\Debug\netcoreapp3.1\Game.AssemblyInfo.cs
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\obj\Debug\netcoreapp3.1\Game.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\obj\Debug\netcoreapp3.1\Game.dll
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\obj\Debug\netcoreapp3.1\Game.pdb
+C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\obj\Debug\netcoreapp3.1\Game.genruntimeconfig.cache
