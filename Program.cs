@@ -13,6 +13,7 @@ namespace Game
         {
             List<int> sampleScores = new List<int> { 56, 54, 53, 52, 51, 50, 49, 48, 47, 45, 1 };
             List<string> sampleNames = new List<string>() { "These", "Are", "Some", "Of", "The", "Sample", "Scores", "I","Have", "Chosen","Top 10 displayed only"};
+            loadHighScore(sampleNames, sampleScores);
 
             while (true)
             {
@@ -64,8 +65,13 @@ namespace Game
         {
             List<List<string>> map_List = new List<List<string>>();
             int Coin = 16;
+            int turn = 0;
+            int highestScore = sampleScores.Max();
+            int score = 0;
             while (Coin != 0)
             {
+                turn++;
+                GameDetails(turn,Coin,score,highestScore);
                 DisplayMap(map_List, true);
                 Console.WriteLine("=========================");
                 Console.WriteLine("Coins: " + Coin);
@@ -74,13 +80,15 @@ namespace Game
                 {
                     break;
                 }
-                PlaceBuilding(map_List, b, 16 - Coin);
+                PlaceBuilding(map_List, b, turn-1);
                 Coin--;
+                score = CurrentTotalScore(map_List);
             }
 
             if(Coin ==0)
             {
                 newHighScore(sampleNames, sampleScores, map_List);
+                SaveHighScore(sampleNames, sampleScores);
             }
         }
         static void DisplayMenu()
@@ -294,6 +302,21 @@ namespace Game
                 }
                 Console.WriteLine("+");
             }
+
+            Console.WriteLine("==============================================================================");
+
+        }
+
+        static void GameDetails(int turn, int coin, int score, int highscore)
+        {
+            string details = string.Format("*                 Turn: {0,3:D3} Coins: {1,3:D3}             Score: {2,3:D3}  Score to beat: {3,3:D3}    *", turn, coin, score, highscore);            
+            Console.WriteLine("**************************************************************************************");
+            Console.WriteLine("*                                                                                    *");
+            Console.WriteLine("*                                      Simp City!                                    *");
+            Console.WriteLine("*                                                                                    *");
+            Console.WriteLine(details);
+            Console.WriteLine("*                                                                                    *");
+            Console.WriteLine("**************************************************************************************");
         }
 
         /*static void OtherOptions(List<List<string>> map)
@@ -429,7 +452,7 @@ namespace Game
                         {
                             IndustryCoins++;
                         }
-                        else (map[x + 1][y] == "R")
+                        else if (map[x + 1][y] == "R")
                         {
                             IndustryCoins++;
                         }
@@ -479,28 +502,28 @@ namespace Game
             {
                 for (int x = 0; x < 20; x++)
                 {
-                    if (map[x][y] == "O")
+                    if (map[y][x] == "O")
                     {
                         //Checks if there is another park adjacent to it on the right
-                        if (map[x][y + 1] == "O")
+                        if (map[y][x + 1] == "O")
                         {
                             parkPoints += 1;
                         }
 
                         //Checks if there is another park adjacent to it on the left
-                        else if (map[x][y - 1] == "O")
+                        else if (map[y][x - 1] == "O")
                         {
                             parkPoints += 1;
                         }
 
                         //Checks if there is another park above that is adjacent to it
-                        else if (map[x + 1][y] == "O")
+                        else if (map[y + 1][x] == "O")
                         {
                             parkPoints += 1;
                         }
 
                         //Checks if there is another park below that is adjacent to it
-                        else (map[x + 1][y] == "O")
+                        else if (map[y + 1][x] == "O")
                         {
                             parkPoints += 1;
                         }
@@ -518,21 +541,21 @@ namespace Game
             {
                 for (int x = 0; x < 20; x++)
                 {
-                    if (map[x][y] == "C")
+                    if (map[y][x] == "C")
                     {
-                        if (map[x][y + 1] == "C")
+                        if (map[y][x + 1] == "C")
                         {
                             comPoints += 1;
                         }
-                        else if (map[x][y - 1] == "C")
+                        else if (map[y][x - 1] == "C")
                         {
                             comPoints += 1;
                         }
-                        else if (map[x + 1][y] == "C")
+                        else if (map[y + 1][x] == "C")
                         {
                             comPoints += 1;
                         }
-                        else (map[x + 1][y] == "C")
+                        else if (map[y + 1][x] == "C")
                         {
                             comPoints += 1;
                         }
@@ -550,21 +573,21 @@ namespace Game
             {
                 for (int x = 0; x < 20; x++)
                 {
-                    if (map[x][y] == "C")
+                    if (map[y][x] == "C")
                     {
-                        if (map[x][y + 1] == "R")
+                        if (map[y][x + 1] == "R")
                         {
                             comCoins += 1;
                         }
-                        else if (map[x][y - 1] == "R")
+                        else if (map[y][x - 1] == "R")
                         {
                             comCoins += 1;
                         }
-                        else if (map[x + 1][y] == "R")
+                        else if (map[y + 1][x] == "R")
                         {
                             comCoins += 1;
                         }
-                        else (map[x + 1][y] == "R")
+                        else if (map[y + 1][x] == "R")
                         {
                             comCoins += 1;
                         }
@@ -665,6 +688,44 @@ namespace Game
             }
         }
 
+        static void loadHighScore(List<string> Names, List<int> Scores)
+        {
+            if (File.Exists("HighScores.txt"))
+            {
+                using (StreamReader sr = new StreamReader("HighScores.txt"))
+                {
+                    string s;
+                    int row = 0;
+                    bool notnull = true;
+                    while(notnull)
+                    {
+                        s = sr.ReadLine();
+                        if (s != null)
+                        {
+                            string[] highscorerecord = s.Split(',');
+                            Names.Add(highscorerecord[0]);
+                            Scores.Add(Convert.ToInt32(highscorerecord[1]));
+                        }
+                        else
+                        {
+                            notnull = false;
+                        }
+                    }
+                }
+            }          
+        }
+
+        static void SaveHighScore(List<string> Names, List<int> Scores)
+        {
+            using (StreamWriter sw = new StreamWriter("HighScores.txt", false))
+            {
+                for (int i = 0; i<Names.Count(); i++)
+                {
+                    sw.WriteLine(Names[i] + "," +Scores[i]);
+                }
+            }
+        }
+
         static void displayLeaderboard(List<string>sampleNames, List<int>sampleScores)
         {
             int index = 1;
@@ -708,5 +769,6 @@ namespace Game
 
             displayLeaderboard(sampleNames, sampleScores);
         }
+
     }
 }
