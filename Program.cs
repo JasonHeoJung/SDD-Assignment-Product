@@ -155,7 +155,9 @@ namespace Game
                 // Turn written location into a coordinate
                 Console.Write("Choose a location: ");
 
+                
                 // Get location
+
                 string buildLoc = Console.ReadLine().Trim().ToUpper();
                 string gridX = "ABCDEFGHIJKLMNOPQRST";
 
@@ -427,7 +429,7 @@ namespace Game
                         {
                             IndustryCoins++;
                         }
-                        else if (map[x + 1][y] == "R")
+                        else (map[x + 1][y] == "R")
                         {
                             IndustryCoins++;
                         }
@@ -486,19 +488,19 @@ namespace Game
                         }
 
                         //Checks if there is another park adjacent to it on the left
-                        if (map[x][y - 1] == "O")
+                        else if (map[x][y - 1] == "O")
                         {
                             parkPoints += 1;
                         }
 
                         //Checks if there is another park above that is adjacent to it
-                        if (map[x + 1][y] == "O")
+                        else if (map[x + 1][y] == "O")
                         {
                             parkPoints += 1;
                         }
 
                         //Checks if there is another park below that is adjacent to it
-                        if (map[x + 1][y] == "O")
+                        else (map[x + 1][y] == "O")
                         {
                             parkPoints += 1;
                         }
@@ -522,15 +524,15 @@ namespace Game
                         {
                             comPoints += 1;
                         }
-                        if (map[x][y - 1] == "C")
+                        else if (map[x][y - 1] == "C")
                         {
                             comPoints += 1;
                         }
-                        if (map[x + 1][y] == "C")
+                        else if (map[x + 1][y] == "C")
                         {
                             comPoints += 1;
                         }
-                        if (map[x + 1][y] == "C")
+                        else (map[x + 1][y] == "C")
                         {
                             comPoints += 1;
                         }
@@ -554,15 +556,15 @@ namespace Game
                         {
                             comCoins += 1;
                         }
-                        if (map[x][y - 1] == "R")
+                        else if (map[x][y - 1] == "R")
                         {
                             comCoins += 1;
                         }
-                        if (map[x + 1][y] == "R")
+                        else if (map[x + 1][y] == "R")
                         {
                             comCoins += 1;
                         }
-                        if (map[x + 1][y] == "R")
+                        else (map[x + 1][y] == "R")
                         {
                             comCoins += 1;
                         }
