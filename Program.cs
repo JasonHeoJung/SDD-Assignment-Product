@@ -11,6 +11,9 @@ namespace Game
     {
         static void Main(string[] args)
         {
+            List<int> sampleScores = new List<int> { 56, 54, 53, 52, 51, 50, 49, 48, 47, 45, 1 };
+            List<string> sampleNames = new List<string>() { "These", "Are", "Some", "Of", "The", "Sample", "Scores", "I","Have", "Chosen","Top 10 displayed only"};
+
             while (true)
             {
                 DisplayMenu();
@@ -32,14 +35,15 @@ namespace Game
                     }
                     else if (choice == 1)
                     {
-                        newGame();
+                        newGame(sampleNames, sampleScores);
                     }
                     else if (choice == 2)
                     {
-                        LoadGame();
+                        LoadGame(sampleNames,sampleScores);
                     }
                     else if (choice == 3)
                     {
+                        displayLeaderboard(sampleNames, sampleScores);
                     }
                     else if (choice == 4)
                     {
@@ -56,7 +60,7 @@ namespace Game
                 }
             }
         }
-        static void newGame()
+        static void newGame(List<string> sampleNames, List<int> sampleScores)
         {
             List<List<string>> map_List = new List<List<string>>();
             int Coin = 16;
@@ -72,6 +76,11 @@ namespace Game
                 }
                 PlaceBuilding(map_List, b, 16 - Coin);
                 Coin--;
+            }
+
+            if(Coin ==0)
+            {
+                newHighScore(sampleNames, sampleScores, map_List);
             }
         }
         static void DisplayMenu()
@@ -146,7 +155,9 @@ namespace Game
                 // Turn written location into a coordinate
                 Console.Write("Choose a location: ");
 
+                
                 // Get location
+
                 string buildLoc = Console.ReadLine().Trim().ToUpper();
                 string gridX = "ABCDEFGHIJKLMNOPQRST";
 
@@ -175,6 +186,7 @@ namespace Game
                         map[y][x] = building;
                         break;
                     }
+
                     // map is not empty, check for adjacent buildings
                     else
                     {
@@ -417,7 +429,7 @@ namespace Game
                         {
                             IndustryCoins++;
                         }
-                        else if (map[x + 1][y] == "R")
+                        else (map[x + 1][y] == "R")
                         {
                             IndustryCoins++;
                         }
@@ -476,19 +488,19 @@ namespace Game
                         }
 
                         //Checks if there is another park adjacent to it on the left
-                        if (map[x][y - 1] == "O")
+                        else if (map[x][y - 1] == "O")
                         {
                             parkPoints += 1;
                         }
 
                         //Checks if there is another park above that is adjacent to it
-                        if (map[x + 1][y] == "O")
+                        else if (map[x + 1][y] == "O")
                         {
                             parkPoints += 1;
                         }
 
                         //Checks if there is another park below that is adjacent to it
-                        if (map[x + 1][y] == "O")
+                        else (map[x + 1][y] == "O")
                         {
                             parkPoints += 1;
                         }
@@ -512,15 +524,15 @@ namespace Game
                         {
                             comPoints += 1;
                         }
-                        if (map[x][y - 1] == "C")
+                        else if (map[x][y - 1] == "C")
                         {
                             comPoints += 1;
                         }
-                        if (map[x + 1][y] == "C")
+                        else if (map[x + 1][y] == "C")
                         {
                             comPoints += 1;
                         }
-                        if (map[x + 1][y] == "C")
+                        else (map[x + 1][y] == "C")
                         {
                             comPoints += 1;
                         }
@@ -544,15 +556,15 @@ namespace Game
                         {
                             comCoins += 1;
                         }
-                        if (map[x][y - 1] == "R")
+                        else if (map[x][y - 1] == "R")
                         {
                             comCoins += 1;
                         }
-                        if (map[x + 1][y] == "R")
+                        else if (map[x + 1][y] == "R")
                         {
                             comCoins += 1;
                         }
-                        if (map[x + 1][y] == "R")
+                        else (map[x + 1][y] == "R")
                         {
                             comCoins += 1;
                         }
@@ -562,10 +574,11 @@ namespace Game
             return comCoins;
         }
 
-        static int CurrentTotalScore(List<List<string>> map)
+        static int CurrentTotalScore(List<List<string>> map )
         {
             // Sum of points at current position
             return ResidentialPoints(map) + IndustryPoints(map) + RoadPoints(map) + ParkPoints(map) + CommercialPoints(map);
+
         }
 
         static void SaveGame(List<List<string>> map, int Coin)
@@ -593,7 +606,7 @@ namespace Game
             Console.WriteLine("Game Saved!");
         }
 
-        static void LoadGame()
+        static void LoadGame(List<string> sampleNames, List<int> sampleScores)
         {
             List<List<string>> map = new List<List<string>>();
             int Coin = 0;
@@ -646,7 +659,54 @@ namespace Game
             {
                 Console.WriteLine("There is currently no game saved. Please start a new game to proceed.");
             }
+        if(Coin == 0)
+            {
+                newHighScore(sampleNames, sampleScores, map);
+            }
+        }
+
+        static void displayLeaderboard(List<string>sampleNames, List<int>sampleScores)
+        {
+            int index = 1;
+            Console.WriteLine("\n--------- HIGH SCORES ---------");
+            Console.WriteLine("Pos\tPlayer\t\tScore");
+            Console.WriteLine("---\t------\t\t-----");
+            foreach( string i in sampleNames) 
+            {
+                if(index < 11)
+                {
+                    Console.WriteLine(String.Format("{0}.\t{1}\t\t{2}", index, i, sampleScores[index - 1]));
+                    index++;
+                }
+            }
+            Console.WriteLine("-------------------------------");
         }
         
+        static void newHighScore(List<string> sampleNames, List<int> sampleScores, List<List<string>> map)
+        {
+            int totalFinalScore = CurrentTotalScore(map);
+            int listSize = sampleScores.Count;
+
+            // add item at specified index
+            for (int i =0; i < listSize; i++) 
+            {
+                if(i < totalFinalScore) 
+                {
+                    sampleScores.Insert(i, totalFinalScore);
+                    Console.Write("Enter a name: ");
+                    string name = Console.ReadLine();
+                    sampleNames.Add(name);
+                }
+            }   
+
+            //limiting list to 10 elements (delete all element starting from index 10 onwards)
+            if(sampleScores.Count > 10) 
+            { 
+                sampleScores.RemoveRange(10, sampleScores.Count-10);
+                sampleNames.RemoveRange(10, sampleNames.Count - 10);
+            }
+
+            displayLeaderboard(sampleNames, sampleScores);
+        }
     }
 }

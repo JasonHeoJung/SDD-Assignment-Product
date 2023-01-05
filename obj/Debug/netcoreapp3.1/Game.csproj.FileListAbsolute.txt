@@ -117,3 +117,10 @@ C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\obj\Debug\netcoreapp3.1\Game.c
 C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\obj\Debug\netcoreapp3.1\Game.dll
 C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\obj\Debug\netcoreapp3.1\Game.pdb
 C:\Users\ASUS\Source\Repos\SDD-Assignment-Product\obj\Debug\netcoreapp3.1\Game.genruntimeconfig.cache
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\bin\Debug\netcoreapp3.1\Game.exe
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\bin\Debug\netcoreapp3.1\Game.deps.json
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\bin\Debug\netcoreapp3.1\Game.runtimeconfig.json
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\bin\Debug\netcoreapp3.1\Game.runtimeconfig.dev.json
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\bin\Debug\netcoreapp3.1\Game.dll
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\bin\Debug\netcoreapp3.1\Game.pdb
+C:\Users\xavie\OneDrive\Attachments\Desktop\SDD\SDD Assignment\obj\Debug\netcoreapp3.1\Game.genruntimeconfig.cache
