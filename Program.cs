@@ -440,22 +440,39 @@ namespace Game
                 {
                     if (map[x][y] == "I")
                     {
-                        if (map[x][y - 1] == "R")
+                        if( y!=0 )
                         {
-                            IndustryCoins++;
+                            if (map[x][y - 1] == "R")
+                            {
+                                IndustryCoins++;
+                            }
                         }
-                        else if (map[x - 1][y] == "R")
+
+                        if (x !=0 )
                         {
-                            IndustryCoins++;
+                                                    
+                            if (map[x - 1][y] == "R")
+                            {
+                                IndustryCoins++;
+                            }
+
                         }
-                        else if (map[x][y + 1] == "R")
+
+                        if(y != 19)
                         {
-                            IndustryCoins++;
+                            if (map[x][y + 1] == "R")
+                            {
+                                IndustryCoins++;
+                            }
                         }
-                        else if (map[x + 1][y] == "R")
+
+                        if (x != 19)
                         {
-                            IndustryCoins++;
-                        }
+                            if (map[x + 1][y] == "R")
+                            {
+                                IndustryCoins++;
+                            }
+                        }  
                     }
                 }
             }
