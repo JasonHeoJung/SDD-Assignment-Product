@@ -11,7 +11,7 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            List<int> sampleScores = new List<int> { 56, 54, 53, 52, 51, 50, 49, 48, 47, 45, 40 };
+            List<int> sampleScores = new List<int> { 56, 54, 53, 52, 51, 50, 49, 48, 47, 45, 1 };
             List<string> sampleNames = new List<string>() { "These", "Are", "Some", "Of", "The", "Sample", "Scores", "I","Have", "Chosen","Top 10 displayed only"};
 
             while (true)
@@ -666,7 +666,7 @@ namespace Game
         static void displayLeaderboard(List<string>sampleNames, List<int>sampleScores)
         {
             int index = 1;
-            Console.WriteLine("\n--------- HIGH SCORES ---------\n");
+            Console.WriteLine("\n--------- HIGH SCORES ---------");
             Console.WriteLine("Pos\tPlayer\t\tScore");
             Console.WriteLine("---\t------\t\t-----");
             foreach( string i in sampleNames) 
