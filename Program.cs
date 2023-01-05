@@ -472,18 +472,21 @@ namespace Game
                     if (map[x][y] == "*")
                     {
                         //Checks if there is a road building next to it
-                        if (map[x][y + 1] == "*")
+                        if (y != 19)
                         {
-                            if (y == 0)
+                            if (map[x][y + 1] == "*")
                             {
-                                roadPoints++;
-                            }
-                            else
-                            {
-                                //Checks whether there is a road building in the previous index, if there is it means the points is already added and if there isn't it means the point has not yet been added
-                                if (map[x][y - 1] != "*" && map[x][y - 1] != "")
+                                if (y == 0)
                                 {
                                     roadPoints++;
+                                }
+                                else
+                                {
+                                    //Checks whether there is a road building in the previous index, if there is it means the points is already added and if there isn't it means the point has not yet been added
+                                    if (map[x][y - 1] != "*" && map[x][y - 1] != "")
+                                    {
+                                        roadPoints++;
+                                    }
                                 }
                             }
                         }
