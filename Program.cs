@@ -531,6 +531,10 @@ namespace Game
                         }
 
                         //Checks if there is another park adjacent to it on the left
+                        if (x == 0)
+                        {
+                            continue;
+                        }
                         else if (map[y][x - 1] == "O")
                         {
                             parkPoints += 1;
@@ -777,6 +781,7 @@ namespace Game
                     Console.Write("Enter a name: ");
                     string name = Console.ReadLine();
                     sampleNames.Add(name);
+                    break;
                 }
             }   
 
