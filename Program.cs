@@ -524,32 +524,40 @@ namespace Game
                 {
                     if (map[y][x] == "O")
                     {
-                        //Checks if there is another park adjacent to it on the right
-                        if (map[y][x + 1] == "O")
+                        if (x != 0)
                         {
-                            parkPoints += 1;
+                            //Checks if there is another park adjacent to it on the right
+                            if (map[y][x + 1] == "O")
+                            {
+                                parkPoints += 1;
+                            }
+                        }  
+
+                        if (x != 0)
+                        {
+                            //Checks if there is another park adjacent to it on the left
+                            if (map[y][x - 1] == "O")
+                            {
+                                parkPoints += 1;
+                            }
                         }
 
-                        //Checks if there is another park adjacent to it on the left
-                        if (x == 0)
+                        if (y != 0)
                         {
-                            continue;
-                        }
-                        else if (map[y][x - 1] == "O")
-                        {
-                            parkPoints += 1;
-                        }
-
-                        //Checks if there is another park above that is adjacent to it
-                        else if (map[y + 1][x] == "O")
-                        {
-                            parkPoints += 1;
+                            //Checks if there is another park above that is adjacent to it
+                            if (map[y + 1][x] == "O")
+                            {
+                                parkPoints += 1;
+                            }
                         }
 
-                        //Checks if there is another park below that is adjacent to it
-                        else if (map[y + 1][x] == "O")
+                        if (y != 0)
                         {
-                            parkPoints += 1;
+                            //Checks if there is another park below that is adjacent to it
+                            if (map[y + 1][x] == "O")
+                            {
+                                parkPoints += 1;
+                            }
                         }
                     }
                 }
@@ -559,7 +567,6 @@ namespace Game
         static int CommercialPoints(List<List<string>> map)
         {
             int comPoints = 0;
-
             // loop through the map to find each Commercial
             for (int y = 0; y < 20; y++)
             {
@@ -567,27 +574,47 @@ namespace Game
                 {
                     if (map[y][x] == "C")
                     {
-                        if (map[y][x + 1] == "C")
+                        if (x != 0)
                         {
-                            comPoints += 1;
+                            //Checks if there is another park adjacent to it on the right
+                            if (map[y][x + 1] == "C")
+                            {
+                                comPoints += 1;
+                            }
                         }
-                        else if (map[y][x - 1] == "C")
+
+                        if (x != 0)
                         {
-                            comPoints += 1;
+                            //Checks if there is another park adjacent to it on the left
+                            if (map[y][x - 1] == "C")
+                            {
+                                comPoints += 1;
+                            }
                         }
-                        else if (map[y + 1][x] == "C")
+
+                        if (y != 0)
                         {
-                            comPoints += 1;
+                            //Checks if there is another park above that is adjacent to it
+                            if (map[y + 1][x] == "C")
+                            {
+                                comPoints += 1;
+                            }
                         }
-                        else if (map[y + 1][x] == "C")
+
+                        if (y != 0)
                         {
-                            comPoints += 1;
+                            //Checks if there is another park below that is adjacent to it
+                            if (map[y + 1][x] == "C")
+                            {
+                                comPoints += 1;
+                            }
                         }
                     }
                 }
             }
             return comPoints;
         }
+
         static int CommercialCoins(List<List<string>> map)
         {
             int comCoins = 0;
