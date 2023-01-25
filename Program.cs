@@ -524,28 +524,40 @@ namespace Game
                 {
                     if (map[y][x] == "O")
                     {
-                        //Checks if there is another park adjacent to it on the right
-                        if (map[y][x + 1] == "O")
+                        if (x != 0)
                         {
-                            parkPoints += 1;
+                            //Checks if there is another park adjacent to it on the right
+                            if (map[y][x + 1] == "O")
+                            {
+                                parkPoints += 1;
+                            }
+                        }  
+
+                        if (x != 0)
+                        {
+                            //Checks if there is another park adjacent to it on the left
+                            else if (map[y][x - 1] == "O")
+                            {
+                                parkPoints += 1;
+                            }
                         }
 
-                        //Checks if there is another park adjacent to it on the left
-                        else if (map[y][x - 1] == "O")
+                        if (y != 0)
                         {
-                            parkPoints += 1;
+                            //Checks if there is another park above that is adjacent to it
+                            else if (map[y + 1][x] == "O")
+                            {
+                                parkPoints += 1;
+                            }
                         }
 
-                        //Checks if there is another park above that is adjacent to it
-                        else if (map[y + 1][x] == "O")
+                        if (y != 0)
                         {
-                            parkPoints += 1;
-                        }
-
-                        //Checks if there is another park below that is adjacent to it
-                        else if (map[y + 1][x] == "O")
-                        {
-                            parkPoints += 1;
+                            //Checks if there is another park below that is adjacent to it
+                            else if (map[y + 1][x] == "O")
+                            {
+                                parkPoints += 1;
+                            }
                         }
                     }
                 }
